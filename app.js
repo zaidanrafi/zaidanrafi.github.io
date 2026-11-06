@@ -17,13 +17,9 @@ var EN_UI = {
   'ui.tooMany': 'Too many messages. Please wait a minute and try again.',
   'ui.error': 'Something went wrong. Email me at zzaidanrafi@gmail.com'
 };
-var LANG = (function () {
-  var q = new URLSearchParams(location.search).get('lang');
-  if (q) return /^zh/i.test(q) ? 'zh' : 'en';
-  try { var saved = localStorage.getItem('zr_lang'); if (saved === 'zh' || saved === 'en') return saved; } catch (e) {}
-  var langs = navigator.languages || [navigator.language || ''];
-  return langs.some(function (l) { return /^zh/i.test(l); }) ? 'zh' : 'en';
-})();
+// Each language has its own URL: / (English) and /zh-tw/ (繁體中文).
+// The page declares its language with <html data-lang="...">.
+var LANG = document.documentElement.getAttribute('data-lang') === 'zh' ? 'zh' : 'en';
 function T(key, arg) {
   var v = (LANG === 'zh' && typeof ZH !== 'undefined' && key in ZH) ? ZH[key] : EN_UI[key];
   return typeof v === 'function' ? v(arg) : v;
@@ -39,7 +35,6 @@ function curPROJ(key) {
   return out;
 }
 var EN_TEXT = {};       // original English, captured from the DOM once
-var EN_META = { title: document.title, desc: (document.getElementById('metaDesc') || {}).content };
 function applyLang(lang, persist) {
   LANG = lang;
   var zh = lang === 'zh';
@@ -59,20 +54,11 @@ function applyLang(lang, persist) {
     el.setAttribute('aria-label', zh && k in ZH ? ZH[k] : EN_TEXT['aria:' + k]);
   });
   document.querySelectorAll('.cv-link').forEach(function (a) {
-    a.href = zh ? 'Zaidan_Rafi_CV_ZH.pdf' : 'Zaidan_Muhammad_Rafi_CV.pdf';
+    a.href = zh ? '/Zaidan_Rafi_CV_ZH.pdf' : '/Zaidan_Muhammad_Rafi_CV.pdf';
   });
   document.documentElement.lang = zh ? 'zh-Hant-TW' : 'en';
-  document.title = zh ? ZH['meta.title'] : EN_META.title;
-  var md = document.getElementById('metaDesc'); if (md) md.content = zh ? ZH['meta.desc'] : EN_META.desc;
-  var cn = document.getElementById('canonical'); if (cn) cn.href = 'https://zaidanrafi.github.io/' + (zh ? '?lang=zh-TW' : '');
   var lb = document.getElementById('langBtn');
   if (lb) { lb.textContent = T('ui.langBtn'); lb.setAttribute('aria-label', T('ui.langLabel')); lb.lang = zh ? 'en' : 'zh-Hant'; }
-  if (persist) {
-    try { localStorage.setItem('zr_lang', lang); } catch (e) {}
-    var u = new URL(location.href);
-    if (zh) u.searchParams.set('lang', 'zh-TW'); else u.searchParams.delete('lang');
-    history.replaceState(null, '', u.pathname + u.search + u.hash);
-  }
   if (typeof tlRenderCard === 'function' && document.getElementById('tlCard')) {
     tlRenderCard(tlCur, false);
     if (document.getElementById('tlModal').classList.contains('on')) tlOpenModal(tlCur);
@@ -80,7 +66,9 @@ function applyLang(lang, persist) {
   }
 }
 document.getElementById('langBtn').addEventListener('click', function () {
-  applyLang(LANG === 'zh' ? 'en' : 'zh', true);
+  var next = LANG === 'zh' ? 'en' : 'zh';
+  try { localStorage.setItem('zr_lang', next); } catch (e) {}
+  location.href = (next === 'zh' ? '/zh-tw/' : '/') + location.hash;
 });
 
 // ── Contact form (EmailJS) + anti-spam ───────────────────
@@ -102,13 +90,17 @@ var LIMITS = { name: 80, email: 120, subject: 120, message: 2000, minMessage: 10
   var sending = false;
   var captchaId = null;
 
-  if (window.emailjs) {
+  var emailjsReady = false;
+  function initEmailJS() {
+    if (emailjsReady || !window.emailjs) return;
+    emailjsReady = true;
     emailjs.init({
       publicKey: EMAILJS.publicKey,
       blockHeadless: true,                                          // rejects headless browsers
       limitRate: { id: 'zr-contact', throttle: LIMITS.cooldownMs }  // SDK-level throttle
     });
   }
+  initEmailJS();
 
   if (RECAPTCHA_SITE_KEY) {
     window.onRecaptchaLoad = function () {
@@ -186,6 +178,7 @@ var LIMITS = { name: 80, email: 120, subject: 120, message: 2000, minMessage: 10
     // 5) Send
     sending = true; btn.disabled = true; btn.textContent = T('ui.sending'); fb.style.display = 'none';
     try {
+      initEmailJS();
       if (!window.emailjs) throw new Error('EmailJS not loaded');
       await emailjs.send(EMAILJS.serviceId, EMAILJS.templateId, data);
       log.push(Date.now()); writeLog(log);
@@ -629,7 +622,7 @@ var PROJ = {
     sub: 'Personal finance web app built with Vue.js and Firebase, hosted on Vercel',
     desc: 'A personal finance web application for tracking income, expenses, and financial goals with a clean, real-time dashboard. Features <b>daily/weekly/monthly cash flow charts</b>, category-based analysis, and financial health indicators. Built with Vue.js 3 + Tailwind CSS, backed by <b>Firebase Realtime Database</b> for instant sync.',
     tags: ['Vue.js 3', 'Tailwind CSS', 'Firebase', 'Vercel', 'Real-time DB', 'UI/UX'],
-    imgs: ['img/rafi1.jpeg', 'img/rafi2.jpeg'],
+    imgs: ['/img/rafi1.jpeg', '/img/rafi2.jpeg'],
     link: { label: 'Live Demo ↗', url: 'http://rafinance-peach.vercel.app/' }
   },
   iotlab: {
@@ -637,7 +630,7 @@ var PROJ = {
     sub: 'Lab website at iot.ub.ac.id/#/laboratory, where I was the web coordinator',
     desc: 'Official website for the <b>IoT & Smart Computing Laboratory</b> at Universitas Brawijaya. Designed and developed the full frontend covering lab profile, research areas, organizational structure, and practicum resources. Built with Vue.js 3 + Tailwind CSS + <b>Google Firebase</b>, hosted on UB\'s internal server.',
     tags: ['Vue.js 3', 'Tailwind CSS', 'Firebase', 'Internal Hosting UB', 'Web Coordinator'],
-    imgs: ['img/lab1.jpeg', 'img/lab2.jpeg'],
+    imgs: ['/img/lab1.jpeg', '/img/lab2.jpeg'],
     link: { label: 'Visit Site ↗', url: 'https://iot.ub.ac.id/#/laboratory' }
   },
   icgc: {
@@ -645,7 +638,7 @@ var PROJ = {
     sub: 'Indonesian Collegiate Golf Competition, icgc-registration.web.app',
     desc: 'Registration platform for the <b>Indonesian Collegiate Golf Competition</b>, a national collegiate tournament. Features multi-step participant registration, identity document management, team grouping, and admin verification. UI follows a <b>dark-gold brand identity</b>. Built with Vue.js 3 + Supabase (PostgreSQL), hosted on Firebase.',
     tags: ['Vue.js 3', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Firebase Hosting', 'UI/UX'],
-    imgs: ['img/icgc.jpeg'],
+    imgs: ['/img/icgc.jpeg'],
     link: { label: 'Live Site ↗', url: 'https://icgc-registration.web.app/#/' }
   },
   waterguard: {
@@ -653,21 +646,21 @@ var PROJ = {
     sub: 'IoT hardware and software with CDP Lab UB and FPIK, Jember, Jul 2024 – Mar 2025',
     desc: 'A <b>solar-powered floating IoT buoy</b> monitoring fish pond water quality in real time. Deployed at a pesantren in Jember. Monitors <b>turbidity, water temperature, and TDS</b>, transmitting data wirelessly to a custom mobile dashboard. Led a <b>6-person team</b> across hardware, software, programming, and mechanics divisions.',
     tags: ['Arduino', 'MQTT', 'Turbidity Sensor', 'TDS Sensor', 'Temperature', 'Solar Power', 'Mobile UI', 'Team Lead (6 people)'],
-    imgs: ['img/wg_app.jpeg', 'img/wg_pond.jpeg', 'img/wg_dev.jpeg', 'img/wg_pres.jpeg']
+    imgs: ['/img/wg_app.jpeg', '/img/wg_pond.jpeg', '/img/wg_dev.jpeg', '/img/wg_pres.jpeg']
   },
   inka: {
     title: 'PT INKA: Ethernet Modbus TCP/IP Temperature Display',
     sub: 'Commissioned industrial IoT project for PT Industri Kereta Api, 2024',
     desc: 'A commissioned hardware module for <b>PT INKA</b> (Indonesia\'s state railway manufacturer). Reads temperature and humidity directly from an industrial <b>PLC via Ethernet using Modbus TCP/IP</b>, then displays it on an <b>LED matrix running text display</b> inside train passenger compartments. Built on Arduino Nano Every, validated with Modbus Poll and real PLC communication.',
     tags: ['Arduino Nano Every', 'Modbus TCP/IP', 'Ethernet', 'LED Matrix', 'PLC Integration', 'Industrial IoT', 'Configurable IP/ID'],
-    imgs: ['img/inka_led.jpeg', 'img/inka_pcb.jpeg', 'img/inka_sw.jpeg', 'img/inka_lab.jpeg']
+    imgs: ['/img/inka_led.jpeg', '/img/inka_pcb.jpeg', '/img/inka_sw.jpeg', '/img/inka_lab.jpeg']
   },
   wpt: {
     title: 'WPT System for IoT Devices (Undergraduate Thesis)',
     sub: '140 kHz magnetic resonant coupling, published in the TEUB journal (2025)',
     desc: 'Designed and built a <b>140 kHz parallel-parallel resonant WPT system</b> for low-power IoT devices, from scratch. A <b>PWM-driven half-bridge</b> drives the resonant tank through hand-wound copper coils on custom <b>PCBs</b>. Tuned to <b>140.2 kHz</b>, then measured performance across loads on real hardware, with oscilloscope and <b>FLIR E30</b> thermal validation. Published in the TEUB journal (2025). Technical foundation of the Charless WPT startup, which won Brawijaya Start-up Action funding.',
     tags: ['WPT', 'Magnetic Resonant Coupling', '140 kHz', 'P-P Compensation', 'Half-bridge', 'PWM', 'Custom Coil', 'PCB Design', 'LTspice', 'FLIR Thermal', 'Oscilloscope', 'Published'],
-    imgs: ['img/wpt_test.jpeg', 'img/wpt_osc.jpeg', 'img/wpt_pcb.jpeg', 'img/wpt_therm.jpeg'],
+    imgs: ['/img/wpt_test.jpeg', '/img/wpt_osc.jpeg', '/img/wpt_pcb.jpeg', '/img/wpt_therm.jpeg'],
     link: { label: 'Read Publication ↗', url: 'https://elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264' }
   }
 };
