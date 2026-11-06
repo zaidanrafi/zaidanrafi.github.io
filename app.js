@@ -1,3 +1,85 @@
+// ── Language (EN / 繁體中文) ─────────────────────────────
+var EN_UI = {
+  'ui.langBtn': '中文',
+  'ui.langLabel': '切換為繁體中文',
+  'ui.tlMore': function (y) { return 'Full story of ' + y + ' →'; },
+  'ui.prev': 'Previous',
+  'ui.next': 'Next story',
+  'ui.highlights': 'Highlights',
+  'ui.zoom': 'Zoom image',
+  'ui.sending': 'Sending…',
+  'ui.sent': "Message sent! I'll get back to you soon.",
+  'ui.invalid': 'Please enter your name, a valid email and a message (at least 10 characters).',
+  'ui.links': 'Please include at most 2 links in your message.',
+  'ui.wait': 'Please wait a minute before sending another message.',
+  'ui.daily': 'Message limit reached for today. Please email me directly.',
+  'ui.captcha': 'Please tick "I\'m not a robot" first.',
+  'ui.tooMany': 'Too many messages. Please wait a minute and try again.',
+  'ui.error': 'Something went wrong. Email me at zzaidanrafi@gmail.com'
+};
+var LANG = (function () {
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q) return /^zh/i.test(q) ? 'zh' : 'en';
+  try { var saved = localStorage.getItem('zr_lang'); if (saved === 'zh' || saved === 'en') return saved; } catch (e) {}
+  var langs = navigator.languages || [navigator.language || ''];
+  return langs.some(function (l) { return /^zh/i.test(l); }) ? 'zh' : 'en';
+})();
+function T(key, arg) {
+  var v = (LANG === 'zh' && typeof ZH !== 'undefined' && key in ZH) ? ZH[key] : EN_UI[key];
+  return typeof v === 'function' ? v(arg) : v;
+}
+function curTL()   { return LANG === 'zh' && typeof TL_ZH !== 'undefined' ? TL_ZH : TL; }
+function curPROJ(key) {
+  var base = PROJ[key];
+  if (LANG !== 'zh' || typeof PROJ_ZH === 'undefined' || !PROJ_ZH[key]) return base;
+  var z = PROJ_ZH[key], out = {};
+  for (var k in base) out[k] = base[k];
+  out.title = z.title; out.sub = z.sub; out.desc = z.desc; out.tags = z.tags;
+  if (base.link && z.linkLabel) out.link = { label: z.linkLabel, url: base.link.url };
+  return out;
+}
+var EN_TEXT = {};       // original English, captured from the DOM once
+var EN_META = { title: document.title, desc: (document.getElementById('metaDesc') || {}).content };
+function applyLang(lang, persist) {
+  LANG = lang;
+  var zh = lang === 'zh';
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n');
+    if (!(k in EN_TEXT)) EN_TEXT[k] = el.innerHTML;
+    el.innerHTML = zh && k in ZH ? ZH[k] : EN_TEXT[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n-ph');
+    if (!(('ph:' + k) in EN_TEXT)) EN_TEXT['ph:' + k] = el.placeholder;
+    el.placeholder = zh && k in ZH ? ZH[k] : EN_TEXT['ph:' + k];
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n-aria');
+    if (!(('aria:' + k) in EN_TEXT)) EN_TEXT['aria:' + k] = el.getAttribute('aria-label');
+    el.setAttribute('aria-label', zh && k in ZH ? ZH[k] : EN_TEXT['aria:' + k]);
+  });
+  document.documentElement.lang = zh ? 'zh-Hant-TW' : 'en';
+  document.title = zh ? ZH['meta.title'] : EN_META.title;
+  var md = document.getElementById('metaDesc'); if (md) md.content = zh ? ZH['meta.desc'] : EN_META.desc;
+  var cn = document.getElementById('canonical'); if (cn) cn.href = 'https://zaidanrafi.github.io/' + (zh ? '?lang=zh-TW' : '');
+  var lb = document.getElementById('langBtn');
+  if (lb) { lb.textContent = T('ui.langBtn'); lb.setAttribute('aria-label', T('ui.langLabel')); lb.lang = zh ? 'en' : 'zh-Hant'; }
+  if (persist) {
+    try { localStorage.setItem('zr_lang', lang); } catch (e) {}
+    var u = new URL(location.href);
+    if (zh) u.searchParams.set('lang', 'zh-TW'); else u.searchParams.delete('lang');
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  }
+  if (typeof tlRenderCard === 'function' && document.getElementById('tlCard')) {
+    tlRenderCard(tlCur, false);
+    if (document.getElementById('tlModal').classList.contains('on')) tlOpenModal(tlCur);
+    if (document.getElementById('prjModal').classList.contains('on')) renderProjModal();
+  }
+}
+document.getElementById('langBtn').addEventListener('click', function () {
+  applyLang(LANG === 'zh' ? 'en' : 'zh', true);
+});
+
 // ── Contact form (EmailJS) + anti-spam ───────────────────
 // The EmailJS public key and IDs are public by design. Browser-side checks
 // below stop simple bots only; real protection is reCAPTCHA v2 enabled on the
@@ -65,7 +147,7 @@ var LIMITS = { name: 80, email: 120, subject: 120, message: 2000, minMessage: 10
 
     // 1) Honeypot + time trap: pretend success so bots learn nothing
     if (document.getElementById('cWebsite').value !== '' || Date.now() - loadedAt < LIMITS.minFillMs) {
-      say("Message sent! I'll get back to you soon.", true);
+      say(T('ui.sent'), true);
       form.reset();
       return;
     }
@@ -78,40 +160,40 @@ var LIMITS = { name: 80, email: 120, subject: 120, message: 2000, minMessage: 10
       message:   clean(document.getElementById('cMsg').value, LIMITS.message, true)
     };
     if (!data.from_name || !EMAIL_RE.test(data.reply_to) || data.message.length < LIMITS.minMessage) {
-      say('Please enter your name, a valid email and a message (at least 10 characters).');
+      say(T('ui.invalid'));
       return;
     }
     if ((data.message.match(/https?:\/\/|www\./gi) || []).length > LIMITS.maxLinks) {
-      say('Please include at most 2 links in your message.');
+      say(T('ui.links'));
       return;
     }
 
     // 3) Per-browser throttle
     var log = readLog();
-    if (log.length && Date.now() - log[log.length - 1] < LIMITS.cooldownMs) { say('Please wait a minute before sending another message.'); return; }
-    if (log.length >= LIMITS.maxPerDay) { say('Message limit reached for today. Please email me directly.'); return; }
+    if (log.length && Date.now() - log[log.length - 1] < LIMITS.cooldownMs) { say(T('ui.wait')); return; }
+    if (log.length >= LIMITS.maxPerDay) { say(T('ui.daily')); return; }
 
     // 4) CAPTCHA (when configured)
     if (RECAPTCHA_SITE_KEY) {
       var token = (window.grecaptcha && captchaId !== null) ? grecaptcha.getResponse(captchaId) : '';
-      if (!token) { say('Please tick "I\'m not a robot" first.'); return; }
+      if (!token) { say(T('ui.captcha')); return; }
       data['g-recaptcha-response'] = token;
     }
 
     // 5) Send
-    sending = true; btn.disabled = true; btn.textContent = 'Sending…'; fb.style.display = 'none';
+    sending = true; btn.disabled = true; btn.textContent = T('ui.sending'); fb.style.display = 'none';
     try {
       if (!window.emailjs) throw new Error('EmailJS not loaded');
       await emailjs.send(EMAILJS.serviceId, EMAILJS.templateId, data);
       log.push(Date.now()); writeLog(log);
-      say("Message sent! I'll get back to you soon.", true);
+      say(T('ui.sent'), true);
       form.reset();
     } catch (err) {
-      if (err && err.status === 429) say('Too many messages. Please wait a minute and try again.');
-      else say('Something went wrong. Email me at zzaidanrafi@gmail.com');
+      if (err && err.status === 429) say(T('ui.tooMany'));
+      else say(T('ui.error'));
     } finally {
       if (RECAPTCHA_SITE_KEY && window.grecaptcha && captchaId !== null) grecaptcha.reset(captchaId);
-      sending = false; btn.disabled = false; btn.textContent = 'Send message';
+      sending = false; btn.disabled = false; btn.textContent = (LANG === 'zh' ? ZH['f.send'] : 'Send message');
     }
   });
 })();
@@ -241,11 +323,11 @@ var TL = [
     title: 'Joined IoT UB — First Real Project & First Competition Win',
     stats: [{ v: '🏆 1st', k: 'Dekan Cup' }, { v: '1', k: 'IoT Project' }],
     body: 'Pivoted <b>fully toward IoT</b>. Joined IoT UB organisation, shipped first real <b>IoT monitoring dashboard</b> as website division lead, and claimed <b>1st place at faculty-level competition</b>.',
-    badges: ['IoT UB — Staff R&D', 'Project Cangat (Kadiv Website)', '🏆 Juara 1 Dekan Cup FT UB'],
+    badges: ['IoT UB — Staff R&D', 'Project Cangar (Kadiv Website)', '🏆 Juara 1 Dekan Cup FT UB'],
     wins: ['🏆 Juara 1 Dekan Cup FT UB'],
     cats: [
       { lbl: 'Organisation', items: [{ t: 'IoT UB — Staff of Research & Development', s: 'July 2022 – March 2024. IoT R&D, building interfaces, leading web division.' }] },
-      { lbl: 'Projects', items: [{ t: 'Project Cangat — Hydroponic Monitoring System', s: 'cangar-europa-server.web.app · PIC Website Division · Vue.js + Firebase · Real-time IoT monitoring in Cangar, Malang.' }] },
+      { lbl: 'Projects', items: [{ t: 'Project Cangar — Hydroponic Monitoring System', s: 'cangar-europa-server.web.app · PIC Website Division · Vue.js + Firebase · Real-time IoT monitoring in Cangar, Malang.' }] },
       { lbl: 'Awards', items: [{ t: '🏆 1st Place — Scientific Proposal PKM Dekan Cup', s: 'Faculty of Engineering, Universitas Brawijaya · January 2022' }] },
       { lbl: 'Skills', items: [{ t: 'IoT pipeline: sensor → connectivity → real-time web UI' }, { t: 'Vue.js + Firebase real-time dashboards' }] }
     ]
@@ -370,7 +452,7 @@ function tlPick(idx, byUser, dir) {
 }
 
 function tlNav(dir) {
-  var next = (tlCur + dir + TL.length) % TL.length;
+  var next = (tlCur + dir + curTL().length) % curTL().length;
   tlPick(next, true, dir);
 }
 
@@ -393,7 +475,7 @@ function tlResetBars() {
 }
 
 function tlRenderCard(idx, animate, dir) {
-  var d = TL[idx];
+  var d = curTL()[idx];
   var stats = d.stats.map(function(s) {
     return '<div><div class="tl-sv">' + s.v + '</div><div class="tl-sk">' + s.k + '</div></div>';
   }).join('');
@@ -415,7 +497,7 @@ function tlRenderCard(idx, animate, dir) {
         '<div class="tl-yr-big">' + d.year + '</div>' +
         '<div class="tl-stats">' + stats + '</div>' +
       '</div>' +
-      '<button class="tl-more" onclick="tlOpenModal(' + idx + ')">Full story of ' + d.year + ' →</button>' +
+      '<button class="tl-more" onclick="tlOpenModal(' + idx + ')">' + T('ui.tlMore', d.year) + '</button>' +
     '</div>';
 
   var holder = document.getElementById('tlCard');
@@ -434,9 +516,9 @@ function tlRenderCard(idx, animate, dir) {
 
 function tlOpenModal(idx) {
   tlStopAuto();
-  var d = TL[idx];
-  var prevIdx = (idx - 1 + TL.length) % TL.length;
-  var nextIdx = (idx + 1) % TL.length;
+  var d = curTL()[idx];
+  var prevIdx = (idx - 1 + curTL().length) % curTL().length;
+  var nextIdx = (idx + 1) % curTL().length;
   var catsHtml = d.cats.map(function(cat) {
     var items = cat.items.map(function(item) {
       return '<div class="tm-item"><div class="tm-dot"></div><div class="tm-txt">' +
@@ -459,10 +541,10 @@ function tlOpenModal(idx) {
     '</div>' +
     '<div class="tm-body">' +
       catsHtml +
-      '<div><div class="tm-sec-lbl">Highlights</div><div class="tm-badges">' + badges + '</div></div>' +
+      '<div><div class="tm-sec-lbl">' + T('ui.highlights') + '</div><div class="tm-badges">' + badges + '</div></div>' +
       '<div class="tm-story-nav">' +
-        '<button onclick="tlModalNav(' + prevIdx + ')"><span>&#8249;</span><small>Previous</small>' + TL[prevIdx].year + '</button>' +
-        '<button onclick="tlModalNav(' + nextIdx + ')"><small>Next story</small>' + TL[nextIdx].year + '<span>&#8250;</span></button>' +
+        '<button onclick="tlModalNav(' + prevIdx + ')"><span>&#8249;</span><small>' + T('ui.prev') + '</small>' + curTL()[prevIdx].year + '</button>' +
+        '<button onclick="tlModalNav(' + nextIdx + ')"><small>' + T('ui.next') + '</small>' + curTL()[nextIdx].year + '<span>&#8250;</span></button>' +
       '</div>' +
     '</div>';
 
@@ -496,7 +578,7 @@ function tlStartAutoCycle() {
 
 function tlAdvance() {
   if (tlAutoStopped || !tlInView) return;
-  tlPick((tlCur + 1) % TL.length, false);
+  tlPick((tlCur + 1) % curTL().length, false);
   tlTimer = setTimeout(tlAdvance, TL_DUR);
 }
 
@@ -582,7 +664,7 @@ function openProj(key) {
 }
 
 function renderProjModal() {
-  var d = PROJ[pmKey];
+  var d = curPROJ(pmKey);
   var imgs = d.imgs;
   var n = imgs.length;
 
@@ -604,7 +686,7 @@ function renderProjModal() {
     '<div class="pm-gal">' +
       '<div class="pm-main-wrap">' +
         '<img class="pm-main" id="pmMain" src="' + imgs[0] + '" alt="' + d.title + '" onclick="pmOpenLb()"/>' +
-        '<button class="pm-zoom" onclick="pmOpenLb()" aria-label="Zoom image">⌕</button>' +
+        '<button class="pm-zoom" onclick="pmOpenLb()" aria-label="' + T('ui.zoom') + '">⌕</button>' +
       '</div>' +
       '<div class="pm-nav-row">' +
         '<button class="pm-nav-btn" id="pmL" onclick="pmGoTo(pmIdx-1)"' + (n < 2 ? ' disabled' : '') + '>&#8249;</button>' +
@@ -623,7 +705,7 @@ function renderProjModal() {
 }
 
 function pmGoTo(idx) {
-  var imgs = PROJ[pmKey].imgs;
+  var imgs = curPROJ(pmKey).imgs;
   pmIdx = ((idx % imgs.length) + imgs.length) % imgs.length;
   document.getElementById('pmMain').src = imgs[pmIdx];
   var ctr = document.getElementById('pmCtr');
@@ -632,5 +714,8 @@ function pmGoTo(idx) {
 }
 
 function pmOpenLb() {
-  openLb(PROJ[pmKey].imgs, pmIdx);
+  openLb(curPROJ(pmKey).imgs, pmIdx);
 }
+
+// initial language
+applyLang(LANG, false);

@@ -6,12 +6,15 @@
   <title>Zaidan Rafi | MSc Electrical Power Engineering, WPT & Power Electronics</title>
   <meta name="google-site-verification" content="NMZUinbM27jAgfKmvwNhkKW8KKbpw7Dh9Q3jWD35H5w" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%23E0A26A%22/><stop offset=%22100%25%22 stop-color=%22%2396602A%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22url(%23g)%22/><text x=%2250%22 y=%2250%22 font-size=%2265%22 font-family=%22serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>Z</text></svg>">
-  <meta name="description" content="Official portfolio of Zaidan Muhammad Rafi (趙伊登), also known as Zaidan Rafi. MSc student in Electrical Power Engineering at National Sun Yat-sen University (NSYSU), Taiwan, researching efficient Wireless Power Transfer (WPT). Open to internships during winter and summer breaks."/>
+  <meta name="description" id="metaDesc" content="Official portfolio of Zaidan Muhammad Rafi (趙伊登), also known as Zaidan Rafi. MSc student in Electrical Power Engineering at National Sun Yat-sen University (NSYSU), Taiwan, researching efficient Wireless Power Transfer (WPT). Open to internships during winter and summer breaks."/>
   <meta name="keywords" content="Zaidan Rafi, Zaidan Muhammad Rafi, 趙伊登, wireless power transfer, WPT researcher, power electronics, electrical power engineering, NSYSU, National Sun Yat-sen University, IoT engineer, embedded systems, Universitas Brawijaya, internship Taiwan"/>
   <meta name="author" content="Zaidan Muhammad Rafi"/>
   <meta name="robots" content="index, follow, max-image-preview:large"/>
   <meta name="googlebot" content="index, follow, max-image-preview:large"/>
-  <link rel="canonical" href="https://zaidanrafi.github.io/"/>
+  <link rel="canonical" href="https://zaidanrafi.github.io/" id="canonical"/>
+  <link rel="alternate" hreflang="en" href="https://zaidanrafi.github.io/"/>
+  <link rel="alternate" hreflang="zh-Hant-TW" href="https://zaidanrafi.github.io/?lang=zh-TW"/>
+  <link rel="alternate" hreflang="x-default" href="https://zaidanrafi.github.io/"/>
   <meta property="og:type" content="profile"/>
   <meta property="og:site_name" content="Zaidan Muhammad Rafi Portfolio"/>
   <meta property="og:title" content="Zaidan Muhammad Rafi (Zaidan Rafi) | WPT & Power Electronics, MSc @ NSYSU"/>
@@ -28,7 +31,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://zaidanrafi.github.io/#zaidan-muhammad-rafi","name":"Zaidan Muhammad Rafi","givenName":"Zaidan","familyName":"Rafi","alternateName":["Zaidan Rafi","Zaidan Muhammad Rafi","趙伊登"],"url":"https://zaidanrafi.github.io/","image":"https://zaidanrafi.github.io/img/photo.jpeg","email":"mailto:zzaidanrafi@gmail.com","jobTitle":"MSc Student, Electrical Power Engineering","description":"Zaidan Muhammad Rafi, also known as Zaidan Rafi, is an MSc student in Electrical Power Engineering at National Sun Yat-sen University (NSYSU), Taiwan, researching efficient Wireless Power Transfer (WPT). He holds a BSc in Electrical Engineering from Universitas Brawijaya.","affiliation":{"@type":"CollegeOrUniversity","name":"National Sun Yat-sen University","url":"https://www.nsysu.edu.tw/"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universitas Brawijaya","url":"https://ub.ac.id/"},"knowsAbout":["Wireless Power Transfer","WPT","Power Electronics","Resonant Converters","DC-DC Converters","Electrical Power Engineering","Internet of Things","IoT","Embedded Systems","Modbus TCP/IP","Python"],"sameAs":["https://www.linkedin.com/in/zaidanrafi","https://github.com/zaidanrafi","https://instagram.com/zaidanrafi_"]},{"@type":"WebSite","@id":"https://zaidanrafi.github.io/#website","url":"https://zaidanrafi.github.io/","name":"Zaidan Muhammad Rafi Portfolio","alternateName":"Zaidan Rafi Portfolio","inLanguage":"en","publisher":{"@id":"https://zaidanrafi.github.io/#zaidan-muhammad-rafi"}},{"@type":"ProfilePage","@id":"https://zaidanrafi.github.io/#profile-page","url":"https://zaidanrafi.github.io/","name":"Zaidan Muhammad Rafi (Zaidan Rafi) Portfolio","description":"Official portfolio profile page for Zaidan Muhammad Rafi, also known as Zaidan Rafi.","inLanguage":"en","isPartOf":{"@id":"https://zaidanrafi.github.io/#website"},"mainEntity":{"@id":"https://zaidanrafi.github.io/#zaidan-muhammad-rafi"}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Outfit:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <link rel="stylesheet" href="style.css"/>
@@ -38,38 +41,41 @@
 <nav id="nav">
   <a href="#top" class="nav-logo">Zaidan<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#skills">Stack</a></li>
-    <li><a href="#journey">Journey</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#skills" data-i18n="nav.skills">Stack</a></li>
+    <li><a href="#journey" data-i18n="nav.journey">Journey</a></li>
+    <li><a href="#projects" data-i18n="nav.work">Work</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <div class="nav-right">
+  <button class="lang-btn" id="langBtn" type="button" aria-label="切換為繁體中文" lang="zh-Hant">中文</button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#skills"   onclick="closeMob()">Stack</a>
-  <a href="#journey"  onclick="closeMob()">Journey</a>
-  <a href="#projects" onclick="closeMob()">Work</a>
-  <a href="#contact"  onclick="closeMob()">Contact</a>
+  <a href="#skills"   onclick="closeMob()" data-i18n="nav.skills">Stack</a>
+  <a href="#journey"  onclick="closeMob()" data-i18n="nav.journey">Journey</a>
+  <a href="#projects" onclick="closeMob()" data-i18n="nav.work">Work</a>
+  <a href="#contact"  onclick="closeMob()" data-i18n="nav.contact">Contact</a>
 </div>
 
 <div id="top" class="hero-wrap">
 <div class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow" data-anim><div class="eyebrow-line"></div><span>MSc Student · Wireless Power Transfer · Power Electronics</span></div>
+      <div class="hero-eyebrow" data-anim><div class="eyebrow-line"></div><span data-i18n="hero.eyebrow">MSc Student · Wireless Power Transfer · Power Electronics</span></div>
       <h1 class="hero-name" data-anim>Zaidan <em>Rafi</em></h1>
-      <p class="hero-role" data-anim><span class="zh" lang="zh-Hant">趙伊登</span> · MSc Electrical Power Engineering · NSYSU, Taiwan</p>
-      <div class="avail" data-anim><span class="avail-dot"></span>Open to internships: winter &amp; summer breaks · Full-time from 2028</div>
-      <p class="hero-bio" data-anim>Master's student at <b>National Sun Yat-sen University</b>, researching how to make <b>Wireless Power Transfer more efficient</b>. As an undergraduate I designed, built and published a <b>140 kHz resonant WPT prototype</b>, then worked as an <b>IoT NOC Engineer</b> handling live network and device incidents. MOE Taiwan Scholarship recipient.</p>
+      <p class="hero-role" data-anim data-i18n="hero.role"><span class="zh" lang="zh-Hant">趙伊登</span> · MSc Electrical Power Engineering · NSYSU, Taiwan</p>
+      <div class="avail" data-anim data-i18n="hero.avail"><span class="avail-dot"></span>Open to internships: winter &amp; summer breaks · Full-time from 2028</div>
+      <p class="hero-bio" data-anim data-i18n="hero.bio">Master's student at <b>National Sun Yat-sen University</b>, researching how to make <b>Wireless Power Transfer more efficient</b>. As an undergraduate I designed, built and published a <b>140 kHz resonant WPT prototype</b>, then worked as an <b>IoT NOC Engineer</b> handling live network and device incidents. MOE Taiwan Scholarship recipient.</p>
       <div class="hero-cta" data-anim>
-        <a href="#projects" class="btn btn-primary">See my work</a>
-        <a href="#contact"  class="btn btn-ghost">Get in touch</a>
+        <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">See my work</a>
+        <a href="#contact"  class="btn btn-ghost" data-i18n="hero.cta2">Get in touch</a>
       </div>
       <div class="stats-row" data-anim>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Journal paper</span></div>
-        <div class="stat"><span class="stat-num">2</span><span class="stat-lbl">Patents</span></div>
-        <div class="stat"><span class="stat-num">2+</span><span class="stat-lbl">WPT grants</span></div>
-        <div class="stat"><span class="stat-num">150+</span><span class="stat-lbl">Students taught</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-lbl" data-i18n="stat.paper">Journal paper</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-lbl" data-i18n="stat.patents">Patents</span></div>
+        <div class="stat"><span class="stat-num">2+</span><span class="stat-lbl" data-i18n="stat.grants">WPT grants</span></div>
+        <div class="stat"><span class="stat-num">150+</span><span class="stat-lbl" data-i18n="stat.students">Students taught</span></div>
       </div>
     </div>
     <div class="photo-wrap" data-anim>
@@ -80,12 +86,12 @@
   <div class="hero-mob" data-anim>
     <div class="hm-top">
       <div class="hm-photo"><img src="img/photo.jpeg" alt="Zaidan Rafi"/></div>
-      <div><div class="hm-ey">MSc · WPT · Power</div><h1 class="hm-name">Zaidan <em>Rafi</em></h1><p class="hm-role"><span class="zh" lang="zh-Hant">趙伊登</span> · MSc @ NSYSU, Taiwan</p></div>
+      <div><div class="hm-ey" data-i18n="hm.ey">MSc · WPT · Power</div><h1 class="hm-name">Zaidan <em>Rafi</em></h1><p class="hm-role" data-i18n="hm.role"><span class="zh" lang="zh-Hant">趙伊登</span> · MSc @ NSYSU, Taiwan</p></div>
     </div>
-    <div class="avail"><span class="avail-dot"></span>Open to internships: winter &amp; summer breaks</div>
-    <p class="hm-bio">Researching <strong>more efficient Wireless Power Transfer</strong> at NSYSU, Taiwan. Built and published a 140 kHz resonant WPT prototype; former <strong>IoT NOC Engineer</strong>.</p>
-    <div class="hm-cta"><a href="#projects" class="btn btn-primary">See my work</a><a href="#contact" class="btn btn-ghost">Contact</a></div>
-    <div class="stats-row"><div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Journal paper</span></div><div class="stat"><span class="stat-num">2</span><span class="stat-lbl">Patents</span></div><div class="stat"><span class="stat-num">150+</span><span class="stat-lbl">Students taught</span></div></div>
+    <div class="avail" data-i18n="hm.avail"><span class="avail-dot"></span>Open to internships: winter &amp; summer breaks</div>
+    <p class="hm-bio" data-i18n="hm.bio">Researching <strong>more efficient Wireless Power Transfer</strong> at NSYSU, Taiwan. Built and published a 140 kHz resonant WPT prototype; former <strong>IoT NOC Engineer</strong>.</p>
+    <div class="hm-cta"><a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">See my work</a><a href="#contact" class="btn btn-ghost" data-i18n="hm.contact">Contact</a></div>
+    <div class="stats-row"><div class="stat"><span class="stat-num">1</span><span class="stat-lbl" data-i18n="stat.paper">Journal paper</span></div><div class="stat"><span class="stat-num">2</span><span class="stat-lbl" data-i18n="stat.patents">Patents</span></div><div class="stat"><span class="stat-num">150+</span><span class="stat-lbl" data-i18n="stat.students">Students taught</span></div></div>
   </div>
 </div>
 </div>
@@ -93,24 +99,24 @@
 <hr class="div"/>
 
 <div class="sw" id="skills">
-  <div class="s-label" data-anim><div class="s-label-line"></div><span>What I work with</span></div>
-  <h2 class="s-title" data-anim>Skills & Tech Stack</h2>
+  <div class="s-label" data-anim><div class="s-label-line"></div><span data-i18n="skills.label">What I work with</span></div>
+  <h2 class="s-title" data-anim data-i18n="skills.title">Skills &amp; Tech Stack</h2>
   <div class="skills-grid" data-anim>
     <div class="skill-card">
-      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span>Power Electronics &amp; WPT</span></div>
-      <div class="tags"><span class="tag hi">Resonant WPT</span><span class="tag hi">DC-DC Converters</span><span class="tag">PWM</span><span class="tag">Half-bridge</span><span class="tag">Coil Design</span><span class="tag">LTspice</span></div>
+      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span data-i18n="sk.power">Power Electronics &amp; WPT</span></div>
+      <div class="tags"><span class="tag hi" data-i18n="tag.resonant">Resonant WPT</span><span class="tag hi" data-i18n="tag.dcdc">DC-DC Converters</span><span class="tag">PWM</span><span class="tag" data-i18n="tag.halfbridge">Half-bridge</span><span class="tag" data-i18n="tag.coil">Coil Design</span><span class="tag">LTspice</span></div>
     </div>
     <div class="skill-card">
-      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg></div><span>Hardware</span></div>
-      <div class="tags"><span class="tag hi">Analog Circuit Design</span><span class="tag hi">PCB Design &amp; Assembly</span><span class="tag">Oscilloscope Measurement</span><span class="tag">FLIR Thermal Check</span></div>
+      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg></div><span data-i18n="sk.hw">Hardware</span></div>
+      <div class="tags"><span class="tag hi" data-i18n="tag.analog">Analog Circuit Design</span><span class="tag hi" data-i18n="tag.pcb">PCB Design &amp; Assembly</span><span class="tag" data-i18n="tag.osc">Oscilloscope Measurement</span><span class="tag" data-i18n="tag.flir">FLIR Thermal Check</span></div>
     </div>
     <div class="skill-card">
-      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="16 2 12 7 8 2"/></svg></div><span>Embedded &amp; Industrial</span></div>
-      <div class="tags"><span class="tag hi">Arduino</span><span class="tag hi">ESP32</span><span class="tag">SPI</span><span class="tag">PID Control</span><span class="tag">Modbus TCP/IP</span><span class="tag">PLC</span><span class="tag">MQTT</span><span class="tag">LoRa</span></div>
+      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="16 2 12 7 8 2"/></svg></div><span data-i18n="sk.emb">Embedded &amp; Industrial</span></div>
+      <div class="tags"><span class="tag hi">Arduino</span><span class="tag hi">ESP32</span><span class="tag">SPI</span><span class="tag" data-i18n="tag.pid">PID Control</span><span class="tag">Modbus TCP/IP</span><span class="tag">PLC</span><span class="tag">MQTT</span><span class="tag">LoRa</span></div>
     </div>
     <div class="skill-card">
-      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span>Software &amp; Languages</span></div>
-      <div class="tags"><span class="tag hi">Python Automation</span><span class="tag hi">Network Monitoring</span><span class="tag">Vue.js</span><span class="tag">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">IELTS 6.5</span><span class="tag">TOEFL ITP 570</span><span class="tag">中文 (learning)</span></div>
+      <div class="sk-hd"><div class="sk-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span data-i18n="sk.sw">Software &amp; Languages</span></div>
+      <div class="tags"><span class="tag hi" data-i18n="tag.py">Python Automation</span><span class="tag hi" data-i18n="tag.netmon">Network Monitoring</span><span class="tag">Vue.js</span><span class="tag">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">IELTS 6.5</span><span class="tag">TOEFL ITP 570</span><span class="tag" data-i18n="tag.zh">中文 (learning)</span></div>
     </div>
   </div>
 </div>
@@ -118,8 +124,8 @@
 <hr class="div"/>
 
 <div class="sw" id="journey">
-  <div class="s-label" data-anim><div class="s-label-line"></div><span>My journey</span></div>
-  <h2 class="s-title" data-anim>Year by Year</h2>
+  <div class="s-label" data-anim><div class="s-label-line"></div><span data-i18n="journey.label">My journey</span></div>
+  <h2 class="s-title" data-anim data-i18n="journey.title">Year by Year</h2>
   <div data-anim>
     <div class="tl-progress"><div id="tlProgress"></div></div>
     <div class="tl-tabs" id="tlTabs">
@@ -131,9 +137,9 @@
       <button class="tl-tab"        onclick="tlPick(5,true)">2026<div class="tl-bar" id="tlBar5"></div></button>
     </div>
     <div class="tl-stage">
-      <button class="tl-nav tl-nav-left" aria-label="Previous year" onclick="tlNav(-1)">&#8249;</button>
+      <button class="tl-nav tl-nav-left" aria-label="Previous year" data-i18n-aria="tl.prevYear" onclick="tlNav(-1)">&#8249;</button>
       <div id="tlCard"></div>
-      <button class="tl-nav tl-nav-right" aria-label="Next year" onclick="tlNav(1)">&#8250;</button>
+      <button class="tl-nav tl-nav-right" aria-label="Next year" data-i18n-aria="tl.nextYear" onclick="tlNav(1)">&#8250;</button>
     </div>
   </div>
 </div>
@@ -141,44 +147,44 @@
 <hr class="div"/>
 
 <div class="sw" id="projects">
-  <div class="s-label" data-anim><div class="s-label-line"></div><span>Selected work</span></div>
-  <h2 class="s-title" data-anim>Projects</h2>
+  <div class="s-label" data-anim><div class="s-label-line"></div><span data-i18n="projects.label">Selected work</span></div>
+  <h2 class="s-title" data-anim data-i18n="projects.title">Projects</h2>
   <div class="proj-tabs" data-anim>
-    <button class="proj-tab on" onclick="switchTab('elec',this)">Electronics & IoT Hardware</button>
-    <button class="proj-tab"    onclick="switchTab('web',this)">Web & Software</button>
+    <button class="proj-tab on" onclick="switchTab('elec',this)" data-i18n="tab.elec">Electronics &amp; IoT Hardware</button>
+    <button class="proj-tab"    onclick="switchTab('web',this)" data-i18n="tab.web">Web &amp; Software</button>
   </div>
   <div class="proj-panel" id="panel-web">
     <div class="pcard" onclick="openProj('rafinance')" data-anim>
       <div class="pcard-imgs"><div class="duo"><img src="img/rafi1.jpeg" alt="Rafinance dashboard" loading="lazy"/><img src="img/rafi2.jpeg" alt="Rafinance cashflow" loading="lazy"/></div><span class="pcard-num">01</span></div>
-      <div class="pcard-body"><div class="pcard-name">Rafinance</div><div class="pcard-sub">rafinance-peach.vercel.app</div><div class="pcard-desc">Personal finance web app tracking income, expenses & goals with real-time Firebase sync.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">Vercel</span></div></div>
-      <div class="pcard-hint">↗ view details</div>
+      <div class="pcard-body"><div class="pcard-name">Rafinance</div><div class="pcard-sub">rafinance-peach.vercel.app</div><div class="pcard-desc" data-i18n="p.rafi.desc">Personal finance web app tracking income, expenses & goals with real-time Firebase sync.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">Vercel</span></div></div>
+      <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('iotlab')" data-anim>
       <div class="pcard-imgs"><div class="duo"><img src="img/lab1.jpeg" alt="IoT Lab" loading="lazy"/><img src="img/lab2.jpeg" alt="IoT Lab practicum" loading="lazy"/></div><span class="pcard-num">02</span></div>
-      <div class="pcard-body"><div class="pcard-name">IoT Lab Website</div><div class="pcard-sub">iot.ub.ac.id/#/laboratory</div><div class="pcard-desc">Lab profile site for IoT & Smart Computing Lab UB — profile, research, structure & practicum.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">Internal UB</span></div></div>
-      <div class="pcard-hint">↗ view details</div>
+      <div class="pcard-body"><div class="pcard-name" data-i18n="p.lab.name">IoT Lab Website</div><div class="pcard-sub">iot.ub.ac.id/#/laboratory</div><div class="pcard-desc" data-i18n="p.lab.desc">Lab profile site for IoT & Smart Computing Lab UB — profile, research, structure & practicum.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag" data-i18n="tag.internal">Internal UB</span></div></div>
+      <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('icgc')" data-anim>
       <div class="pcard-imgs"><img class="si" src="img/icgc.jpeg" alt="ICGC" loading="lazy" style="object-position:center 15%"/><span class="pcard-num">03</span></div>
-      <div class="pcard-body"><div class="pcard-name">ICGC Registration</div><div class="pcard-sub">icgc-registration.web.app</div><div class="pcard-desc">Registration platform for Indonesian Collegiate Golf Competition — dark-gold branded UI.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Supabase</span><span class="tag">Firebase</span></div></div>
-      <div class="pcard-hint">↗ view details</div>
+      <div class="pcard-body"><div class="pcard-name" data-i18n="p.icgc.name">ICGC Registration</div><div class="pcard-sub">icgc-registration.web.app</div><div class="pcard-desc" data-i18n="p.icgc.desc">Registration platform for Indonesian Collegiate Golf Competition — dark-gold branded UI.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Supabase</span><span class="tag">Firebase</span></div></div>
+      <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
   </div>
   <div class="proj-panel on" id="panel-elec">
     <div class="pcard" onclick="openProj('wpt')" data-anim>
       <div class="pcard-imgs"><div class="quad"><img src="img/wpt_test.jpeg" alt="WPT test" loading="lazy"/><img src="img/wpt_osc.jpeg" alt="WPT osc" loading="lazy"/><img src="img/wpt_pcb.jpeg" alt="WPT PCB" loading="lazy"/><img src="img/wpt_therm.jpeg" alt="WPT thermal" loading="lazy"/></div><span class="pcard-num">01</span></div>
-      <div class="pcard-body"><div class="pcard-name">WPT System for IoT Devices</div><div class="pcard-sub">Thesis · Published · TEUB Journal 2025</div><div class="pcard-desc">140 kHz parallel-parallel resonant WPT system with a PWM-driven half-bridge, hand-wound coils and custom PCBs, tuned and measured across loads on real hardware.</div><div class="tags sm"><span class="tag hi">WPT</span><span class="tag hi">Analog Circuit</span><span class="tag">Custom PCB</span><span class="tag">Published</span></div></div>
-      <div class="pcard-hint">↗ view details</div>
+      <div class="pcard-body"><div class="pcard-name" data-i18n="p.wpt.name">WPT System for IoT Devices</div><div class="pcard-sub" data-i18n="p.wpt.sub">Thesis · Published · TEUB Journal 2025</div><div class="pcard-desc" data-i18n="p.wpt.desc">140 kHz parallel-parallel resonant WPT system with a PWM-driven half-bridge, hand-wound coils and custom PCBs, tuned and measured across loads on real hardware.</div><div class="tags sm"><span class="tag hi">WPT</span><span class="tag hi" data-i18n="tag.analogc">Analog Circuit</span><span class="tag" data-i18n="tag.custompcb">Custom PCB</span><span class="tag" data-i18n="tag.published">Published</span></div></div>
+      <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('waterguard')" data-anim>
       <div class="pcard-imgs"><div class="quad"><img src="img/wg_app.jpeg" alt="WG app" loading="lazy"/><img src="img/wg_pond.jpeg" alt="WG pond" loading="lazy"/><img src="img/wg_dev.jpeg" alt="WG device" loading="lazy"/><img src="img/wg_pres.jpeg" alt="WG pres" loading="lazy"/></div><span class="pcard-num">02</span></div>
-      <div class="pcard-body"><div class="pcard-name">WaterGuard</div><div class="pcard-sub">Team Lead · Fish Pond Monitoring · Jember 2024–2025</div><div class="pcard-desc">Led a six-person team building a solar-powered IoT buoy that tracks turbidity, temperature & TDS in a fish pond at a pesantren.</div><div class="tags sm"><span class="tag hi">Arduino</span><span class="tag hi">MQTT</span><span class="tag">Solar</span><span class="tag">Multi-sensor</span></div></div>
-      <div class="pcard-hint">↗ view details</div>
+      <div class="pcard-body"><div class="pcard-name">WaterGuard</div><div class="pcard-sub" data-i18n="p.wg.sub">Team Lead · Fish Pond Monitoring · Jember 2024–2025</div><div class="pcard-desc" data-i18n="p.wg.desc">Led a six-person team building a solar-powered IoT buoy that tracks turbidity, temperature & TDS in a fish pond at a pesantren.</div><div class="tags sm"><span class="tag hi">Arduino</span><span class="tag hi">MQTT</span><span class="tag" data-i18n="tag.solar">Solar</span><span class="tag" data-i18n="tag.multisensor">Multi-sensor</span></div></div>
+      <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('inka')" data-anim>
       <div class="pcard-imgs"><div class="quad"><img src="img/inka_led.jpeg" alt="INKA LED" loading="lazy"/><img src="img/inka_pcb.jpeg" alt="INKA module" loading="lazy"/><img src="img/inka_sw.jpeg" alt="INKA SW" loading="lazy"/><img src="img/inka_lab.jpeg" alt="INKA lab" loading="lazy"/></div><span class="pcard-num">03</span></div>
-      <div class="pcard-body"><div class="pcard-name">PT INKA — Ethernet Modbus Module</div><div class="pcard-sub">Industrial IoT · Modbus TCP/IP · LED Matrix</div><div class="pcard-desc">Custom module reading temp & humidity from PLC via Ethernet Modbus, displayed on LED matrix for train compartments.</div><div class="tags sm"><span class="tag hi">Modbus TCP/IP</span><span class="tag hi">Arduino Nano</span><span class="tag">Ethernet</span><span class="tag">PLC</span></div></div>
-      <div class="pcard-hint">↗ view details</div>
+      <div class="pcard-body"><div class="pcard-name" data-i18n="p.inka.name">PT INKA — Ethernet Modbus Module</div><div class="pcard-sub" data-i18n="p.inka.sub">Industrial IoT · Modbus TCP/IP · LED Matrix</div><div class="pcard-desc" data-i18n="p.inka.desc">Custom module reading temp & humidity from PLC via Ethernet Modbus, displayed on LED matrix for train compartments.</div><div class="tags sm"><span class="tag hi">Modbus TCP/IP</span><span class="tag hi">Arduino Nano</span><span class="tag" data-i18n="tag.ethernet">Ethernet</span><span class="tag">PLC</span></div></div>
+      <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
   </div>
 </div>
@@ -188,9 +194,9 @@
 <div class="sw" id="contact">
   <div class="contact-grid">
     <div>
-      <div class="s-label" data-anim><div class="s-label-line"></div><span>Let's connect</span></div>
-      <h2 class="contact-h" data-anim>Looking for a WPT or<br/><em>power electronics intern?</em></h2>
-      <p class="contact-sub" data-anim>I'm available for internships during the winter and summer school breaks, and for full-time roles after I graduate in 2028. Research collaborations and conversations about WPT, power electronics or IoT are welcome too.</p>
+      <div class="s-label" data-anim><div class="s-label-line"></div><span data-i18n="contact.label">Let's connect</span></div>
+      <h2 class="contact-h" data-anim data-i18n="contact.h">Looking for a WPT or<br/><em>power electronics intern?</em></h2>
+      <p class="contact-sub" data-anim data-i18n="contact.sub">I'm available for internships during the winter and summer school breaks, and for full-time roles after I graduate in 2028. Research collaborations and conversations about WPT, power electronics or IoT are welcome too.</p>
       <div class="socials" data-anim>
         <a href="mailto:zzaidanrafi@gmail.com" class="soc-link"><div class="soc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>Email<span>zzaidanrafi@gmail.com</span></a>
         <a href="https://www.linkedin.com/in/zaidanrafi" target="_blank" rel="me noopener" class="soc-link"><div class="soc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>LinkedIn<span>Zaidan Rafi</span></a>
@@ -198,18 +204,18 @@
     </div>
     <form id="cForm" data-anim novalidate>
       <div class="form-row">
-        <div class="fg"><label>Name</label><input type="text" id="cName" placeholder="Your name" autocomplete="name" maxlength="80" required/></div>
-        <div class="fg"><label>Email</label><input type="email" id="cEmail" placeholder="you@company.com" autocomplete="email" maxlength="120" required/></div>
+        <div class="fg"><label for="cName" data-i18n="f.name">Name</label><input type="text" id="cName" placeholder="Your name" data-i18n-ph="ph.name" autocomplete="name" maxlength="80" required/></div>
+        <div class="fg"><label for="cEmail" data-i18n="f.email">Email</label><input type="email" id="cEmail" placeholder="you@company.com" autocomplete="email" maxlength="120" required/></div>
       </div>
-      <div class="fg"><label>Subject</label><input type="text" id="cSubject" placeholder="Internship, research, collaboration…" maxlength="120"/></div>
-      <div class="fg"><label>Message</label><textarea id="cMsg" placeholder="Tell me about the role or project…" minlength="10" maxlength="2000" required></textarea></div>
+      <div class="fg"><label for="cSubject" data-i18n="f.subject">Subject</label><input type="text" id="cSubject" placeholder="Internship, research, collaboration…" data-i18n-ph="ph.subject" maxlength="120"/></div>
+      <div class="fg"><label for="cMsg" data-i18n="f.msg">Message</label><textarea id="cMsg" placeholder="Tell me about the role or project…" data-i18n-ph="ph.msg" minlength="10" maxlength="2000" required></textarea></div>
       <div class="hp" aria-hidden="true"><label for="cWebsite">Website</label><input type="text" id="cWebsite" tabindex="-1" autocomplete="off"/></div>
       <div id="cCaptcha"></div>
       <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-        <button type="submit" class="btn btn-primary" id="cBtn">Send message</button>
+        <button type="submit" class="btn btn-primary" id="cBtn" data-i18n="f.send">Send message</button>
         <span id="cFb" role="status" aria-live="polite" style="font-size:.82rem;display:none"></span>
       </div>
-      <p class="form-note">Prefer LinkedIn? <a href="https://www.linkedin.com/in/zaidanrafi" target="_blank" rel="noopener">Reach me there</a></p>
+      <p class="form-note" data-i18n="f.note">Prefer LinkedIn? <a href="https://www.linkedin.com/in/zaidanrafi" target="_blank" rel="noopener">Reach me there</a></p>
     </form>
   </div>
 </div>
@@ -229,6 +235,7 @@
   <div class="lb-dots" id="lbDots"></div>
 </div>
 
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
