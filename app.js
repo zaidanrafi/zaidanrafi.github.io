@@ -1,27 +1,120 @@
-// ── EmailJS ──────────────────────────────────────────────
-emailjs.init({ publicKey: 'q3x_GEtpFJLWd_n0T' });
-document.getElementById('cForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  var btn = document.getElementById('cBtn');
-  var fb  = document.getElementById('cFb');
-  btn.textContent = 'Sending…'; btn.disabled = true; fb.style.display = 'none';
-  try {
-    await emailjs.send('service_nscfnyq', 'template_a1rxujr', {
-      from_name: document.getElementById('cName').value,
-      reply_to:  document.getElementById('cEmail').value,
-      subject:   document.getElementById('cSubject').value || '(no subject)',
-      message:   document.getElementById('cMsg').value,
+// ── Contact form (EmailJS) + anti-spam ───────────────────
+// The EmailJS public key and IDs are public by design. Browser-side checks
+// below stop simple bots only; real protection is reCAPTCHA v2 enabled on the
+// EmailJS template, plus a fixed "To Email" in the template settings.
+var EMAILJS = { publicKey: 'q3x_GEtpFJLWd_n0T', serviceId: 'service_nscfnyq', templateId: 'template_a1rxujr' };
+// Paste a Google reCAPTCHA v2 (checkbox) SITE key here after enabling
+// reCAPTCHA with the SECRET key in the EmailJS template settings.
+var RECAPTCHA_SITE_KEY = '';
+var LIMITS = { name: 80, email: 120, subject: 120, message: 2000, minMessage: 10, maxLinks: 2,
+               minFillMs: 4000, cooldownMs: 60000, maxPerDay: 3 };
+
+(function () {
+  var form = document.getElementById('cForm');
+  var btn  = document.getElementById('cBtn');
+  var fb   = document.getElementById('cFb');
+  var loadedAt = Date.now();
+  var sending = false;
+  var captchaId = null;
+
+  if (window.emailjs) {
+    emailjs.init({
+      publicKey: EMAILJS.publicKey,
+      blockHeadless: true,                                          // rejects headless browsers
+      limitRate: { id: 'zr-contact', throttle: LIMITS.cooldownMs }  // SDK-level throttle
     });
-    fb.textContent = "Message sent! I'll get back to you soon.";
-    fb.style.color = 'var(--accent)';
-    this.reset();
-  } catch(err) {
-    fb.textContent = 'Something went wrong. Email me at zzaidanrafi@gmail.com';
-    fb.style.color = '#c0392b';
   }
-  fb.style.display = 'inline';
-  btn.textContent = 'Send message'; btn.disabled = false;
-});
+
+  if (RECAPTCHA_SITE_KEY) {
+    window.onRecaptchaLoad = function () {
+      captchaId = grecaptcha.render('cCaptcha', {
+        sitekey: RECAPTCHA_SITE_KEY,
+        theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      });
+    };
+    var sc = document.createElement('script');
+    sc.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
+    sc.async = true; sc.defer = true;
+    document.head.appendChild(sc);
+  }
+
+  function say(msg, ok) {
+    fb.textContent = msg;
+    fb.style.color = ok ? 'var(--accent)' : '#c0392b';
+    fb.style.display = 'inline';
+  }
+  // Strip control characters; single-line fields also lose CR/LF
+  function clean(v, max, multiline) {
+    var str = String(v || '');
+    if (str.normalize) str = str.normalize('NFC');
+    str = multiline ? str.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '')
+                    : str.replace(/[\u0000-\u001F\u007F]/g, ' ');
+    return str.trim().slice(0, max);
+  }
+  var EMAIL_RE = /^[^\s@<>()[\]\\,;:"]{1,64}@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+$/;
+  var LOG_KEY = 'zr_contact_log';
+  function readLog() {
+    try { return JSON.parse(localStorage.getItem(LOG_KEY) || '[]').filter(function (t) { return Date.now() - t < 864e5; }); }
+    catch (e) { return []; }
+  }
+  function writeLog(log) { try { localStorage.setItem(LOG_KEY, JSON.stringify(log)); } catch (e) {} }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (sending) return;
+
+    // 1) Honeypot + time trap: pretend success so bots learn nothing
+    if (document.getElementById('cWebsite').value !== '' || Date.now() - loadedAt < LIMITS.minFillMs) {
+      say("Message sent! I'll get back to you soon.", true);
+      form.reset();
+      return;
+    }
+
+    // 2) Validate + sanitise
+    var data = {
+      from_name: clean(document.getElementById('cName').value, LIMITS.name),
+      reply_to:  clean(document.getElementById('cEmail').value, LIMITS.email),
+      subject:   clean(document.getElementById('cSubject').value, LIMITS.subject) || '(no subject)',
+      message:   clean(document.getElementById('cMsg').value, LIMITS.message, true)
+    };
+    if (!data.from_name || !EMAIL_RE.test(data.reply_to) || data.message.length < LIMITS.minMessage) {
+      say('Please enter your name, a valid email and a message (at least 10 characters).');
+      return;
+    }
+    if ((data.message.match(/https?:\/\/|www\./gi) || []).length > LIMITS.maxLinks) {
+      say('Please include at most 2 links in your message.');
+      return;
+    }
+
+    // 3) Per-browser throttle
+    var log = readLog();
+    if (log.length && Date.now() - log[log.length - 1] < LIMITS.cooldownMs) { say('Please wait a minute before sending another message.'); return; }
+    if (log.length >= LIMITS.maxPerDay) { say('Message limit reached for today. Please email me directly.'); return; }
+
+    // 4) CAPTCHA (when configured)
+    if (RECAPTCHA_SITE_KEY) {
+      var token = (window.grecaptcha && captchaId !== null) ? grecaptcha.getResponse(captchaId) : '';
+      if (!token) { say('Please tick "I\'m not a robot" first.'); return; }
+      data['g-recaptcha-response'] = token;
+    }
+
+    // 5) Send
+    sending = true; btn.disabled = true; btn.textContent = 'Sending…'; fb.style.display = 'none';
+    try {
+      if (!window.emailjs) throw new Error('EmailJS not loaded');
+      await emailjs.send(EMAILJS.serviceId, EMAILJS.templateId, data);
+      log.push(Date.now()); writeLog(log);
+      say("Message sent! I'll get back to you soon.", true);
+      form.reset();
+    } catch (err) {
+      if (err && err.status === 429) say('Too many messages. Please wait a minute and try again.');
+      else say('Something went wrong. Email me at zzaidanrafi@gmail.com');
+    } finally {
+      if (RECAPTCHA_SITE_KEY && window.grecaptcha && captchaId !== null) grecaptcha.reset(captchaId);
+      sending = false; btn.disabled = false; btn.textContent = 'Send message';
+    }
+  });
+})();
 
 // ── Nav ──────────────────────────────────────────────────
 var nav = document.getElementById('nav');
@@ -166,8 +259,8 @@ var TL = [
     wins: ['🏆 Juara 1 LMI Essay (National)', '📄 Patent: PIKO'],
     cats: [
       { lbl: 'Work & Lab', items: [
-        { t: 'Lab Assistant — IoT & Smart Computing Lab UB', s: 'April 2023 – Feb 2024. Developed practicum modules. Taught Basic Microcontroller & Arduino IDE.' },
-        { t: 'Internship — BRIN ORPA Bogor', s: 'Dec 2023 – Feb 2024. Built vibration monitoring & control for rockets using external ADC/DAC via SPI on Arduino Mega 2560.' }
+        { t: 'Lab Assistant — IoT & Smart Computing Lab UB', s: 'March 2023 – March 2024. Developed practicum modules. Taught Basic Microcontroller & Arduino IDE.' },
+        { t: 'Electronics Project Intern — BRIN Aerospace Research Organization (ORPA), Bogor', s: 'Dec 2023 – Feb 2024. Assembled a rocket vibration monitoring & control system, linking external ADC/DAC modules to an Arduino Mega 2560 over SPI. Added PID control to improve response and data reliability.' }
       ]},
       { lbl: 'Projects', items: [
         { t: 'IoT UB Organisation Website', s: 'iot.ub.ac.id · Coordinator · Vue.js + Tailwind CSS + Firebase' },
@@ -191,8 +284,8 @@ var TL = [
     wins: ['🏆 TSIC 2024 Juara 2 (National)', '🏆 Sigma Business Plan Juara 3 (National)', '📄 Patent: Hydrozen'],
     cats: [
       { lbl: 'Work & Lab', items: [
-        { t: 'Lab Coordinator — IoT & Smart Computing Lab UB', s: 'March 2024 – April 2025. Led 6 assistants. 3 practicum cycles incl. external POLTEKAD.' },
-        { t: 'Research Assistant — CDP Laboratory, Universitas Brawijaya', s: 'July 2024 – April 2025. Led WaterGuard project. IoT teaching for 150+ SMA students.' }
+        { t: 'Lab Coordinator — IoT & Smart Computing Lab UB', s: 'March 2024 – May 2025. Promoted from Lab Assistant. Led 6 assistants; managed staffing, equipment & external relations. Ran 2024 recruitment and led the practicum module revision (incl. LoRa). 3 practicum cycles incl. external POLTEKAD.' },
+        { t: 'Research Assistant, Head of Smart Device Division — CDP Laboratory UB', s: 'July 2024 – May 2025. Developed smart device & WPT concepts; helped secure 2+ research grants for long-term WPT work. Led WaterGuard. Taught a hands-on IoT workshop for 150+ high school students.' }
       ]},
       { lbl: 'Organisation', items: [{ t: 'IoT UB — Manager of Media & Publication', s: 'March 2024 – March 2025. Revitalized Broditech entity. Digital marketing + iot.ub.ac.id.' }] },
       { lbl: 'Projects', items: [
@@ -220,8 +313,8 @@ var TL = [
     wins: ['🎓 B.Eng Graduated', '📰 TEUB Journal Published'],
     cats: [
       { lbl: 'Education & Graduation', items: [
-        { t: '🎓 Graduated — B.Eng Electrical Engineering, Universitas Brawijaya · 2025', s: 'Major: Electronics' },
-        { t: 'Thesis: Design & Development of 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices', s: 'Custom analog circuit, hand-wound coils, PCB, resonance tuning at 140.2 kHz, FLIR thermal + oscilloscope validation.' }
+        { t: '🎓 Graduated — BSc Electrical Engineering, Universitas Brawijaya · July 2025', s: 'Minor: Electronics · GPA 3.42 / 4.00' },
+        { t: 'Thesis: Design & Development of 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices', s: 'Parallel-parallel resonant topology, PWM-driven half-bridge, hand-wound coils, custom PCB, resonance tuning at 140.2 kHz, performance measured across loads, FLIR thermal + oscilloscope validation.' }
       ]},
       { lbl: 'Publication', items: [{ t: '📰 Published — TEUB Student Journal', s: '"Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices" · elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264 · July 2025' }] },
       { lbl: 'Startup', items: [{ t: 'Founded Charless — WPT commercial wireless charging startup', s: '8-person team · 2× hibah funding · MVP: wireless charging table (phone charges placed on surface, no pad).' }] },
@@ -229,16 +322,25 @@ var TL = [
     ]
   },
   {
-    year: '2026', focus: "What's Next",
-    title: 'Graduate School Prep · AI Edge Computing · WPT Research Continues',
-    stats: [{ v: 'Jetson', k: 'Orin Nano' }, { v: 'YOLOv11', k: 'Edge AI' }],
-    body: '<b>No wasted days.</b> Preparing for graduate school to pursue deeper WPT research at <b>higher power levels</b> while independently conducting AI edge computing research and building a trading bot.',
-    badges: ['Jetson Orin Nano', 'YOLOv11 Edge AI', 'AI Trading Bot', 'Graduate School Prep', 'WPT High-Power Research'],
-    wins: [],
+    year: '2026', focus: 'Industry → Graduate School',
+    title: 'IoT NOC Engineer · MSc at NSYSU, Taiwan · MOE Taiwan Scholarship',
+    stats: [{ v: 'NSYSU', k: 'MSc, Taiwan' }, { v: '65 W', k: 'WPT target' }, { v: 'MOE', k: 'Scholarship' }],
+    body: 'Worked as an <b>IoT NOC Engineer</b> handling live network and device incidents, then started an <b>MSc in Electrical Power Engineering at National Sun Yat-sen University</b> in Kaohsiung, Taiwan, on an <b>MOE Taiwan Scholarship</b>. Research focus: making WPT more efficient, targeting <b>laptop-class (65 W) charging</b>.',
+    badges: ['🎓 MSc @ NSYSU', '🏅 MOE Taiwan Scholarship', 'NOC Engineer (IoT)', 'Python Automation', 'WPT Efficiency Research', 'Open to Internships'],
+    wins: ['🎓 MSc @ NSYSU', '🏅 MOE Taiwan Scholarship'],
     cats: [
-      { lbl: 'Graduate School Prep', items: [
-        { t: 'Preparing international graduate school applications', s: 'Focus: WPT — higher power, electromagnetic design, power electronics' },
-        { t: 'English proficiency improvement (IELTS target for admission)' }
+      { lbl: 'Education', items: [
+        { t: 'MSc, International Master\'s Program in Electrical Power Engineering (IMEPE) — National Sun Yat-sen University', s: 'Sep 2026 – Aug 2028 · Kaohsiung, Taiwan · MOE Taiwan Scholarship (Taiwan Ministry of Education)' },
+        { t: 'Courses: Power Electronic Converters, Power Conditioning Systems, Renewable Energy Applications' }
+      ]},
+      { lbl: 'Work', items: [
+        { t: 'NOC Engineer (IoT Specialist) — PT Geo Tekno Globalindo, Jakarta', s: 'May – Aug 2026. Handled network & IoT device incidents, tracing root causes and getting systems back online fast. Worked remotely with on-board engineers to fix field connectivity problems. Built Python tools that automated parts of the NOC data analysis.' }
+      ]},
+      { lbl: 'Research', items: [
+        { t: 'Efficiency-focused WPT research (Master\'s)', s: 'Sep 2026 – present. Studying how to raise WPT efficiency, with laptop-class (65 W) charging as the target application.' }
+      ]},
+      { lbl: 'Availability', items: [
+        { t: 'Open to internships during winter & summer school breaks', s: 'Full-time roles after graduation in 2028.' }
       ]},
       { lbl: 'Independent Research', items: [
         { t: 'AI Edge Computing — Jetson Orin Nano', s: 'Real-time object detection: YOLOv11 + external camera, Python + Google libraries. Fully on edge hardware.' },
@@ -448,7 +550,7 @@ var PROJ = {
   },
   waterguard: {
     title: 'WaterGuard — Smart Fish Pond Monitoring',
-    sub: 'IoT Hardware + Software · CDP Lab UB × FPIK · Jember, 2024',
+    sub: 'IoT Hardware + Software · CDP Lab UB × FPIK · Jember · Jul 2024 – Mar 2025',
     desc: 'A <b>solar-powered floating IoT buoy</b> monitoring fish pond water quality in real time. Deployed at a pesantren in Jember. Monitors <b>turbidity, water temperature, and TDS</b>, transmitting data wirelessly to a custom mobile dashboard. Led a <b>6-person team</b> across hardware, software, programming, and mechanics divisions.',
     tags: ['Arduino', 'MQTT', 'Turbidity Sensor', 'TDS Sensor', 'Temperature', 'Solar Power', 'Mobile UI', 'Team Lead (6 people)'],
     imgs: ['img/wg_app.jpeg', 'img/wg_pond.jpeg', 'img/wg_dev.jpeg', 'img/wg_pres.jpeg']
@@ -463,8 +565,8 @@ var PROJ = {
   wpt: {
     title: 'WPT System for IoT Devices — Undergraduate Thesis',
     sub: 'Published · TEUB Journal 2025 · 140 kHz Magnetic Resonant Coupling',
-    desc: 'Designed a <b>Wireless Power Transfer (WPT) system</b> for low-power IoT devices, built from scratch. Custom <b>analog circuits</b> (H-bridge inverter, resonant tank), hand-wound copper coils, and custom <b>PCB layout</b>. Tuned to <b>140.2 kHz</b> resonant frequency. Thermal validation with <b>FLIR E30</b>. Published in TEUB journal. Technical foundation of the Charless WPT startup.',
-    tags: ['WPT', 'Magnetic Resonant Coupling', '140 kHz', 'Analog Circuit Design', 'H-Bridge Inverter', 'Custom Coil', 'PCB Design', 'FLIR Thermal', 'Oscilloscope', 'Published'],
+    desc: 'Designed and built a <b>140 kHz parallel-parallel resonant WPT system</b> for low-power IoT devices, from scratch. A <b>PWM-driven half-bridge</b> drives the resonant tank through hand-wound copper coils on custom <b>PCBs</b>. Tuned to <b>140.2 kHz</b>, then measured performance across loads on real hardware, with oscilloscope and <b>FLIR E30</b> thermal validation. Published in the TEUB journal (2025). Technical foundation of the Charless WPT startup, which won Brawijaya Start-up Action funding.',
+    tags: ['WPT', 'Magnetic Resonant Coupling', '140 kHz', 'P-P Compensation', 'Half-bridge', 'PWM', 'Custom Coil', 'PCB Design', 'LTspice', 'FLIR Thermal', 'Oscilloscope', 'Published'],
     imgs: ['img/wpt_test.jpeg', 'img/wpt_osc.jpeg', 'img/wpt_pcb.jpeg', 'img/wpt_therm.jpeg'],
     link: { label: 'Read Publication ↗', url: 'https://elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264' }
   }
