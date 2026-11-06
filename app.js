@@ -58,6 +58,9 @@ function applyLang(lang, persist) {
     if (!(('aria:' + k) in EN_TEXT)) EN_TEXT['aria:' + k] = el.getAttribute('aria-label');
     el.setAttribute('aria-label', zh && k in ZH ? ZH[k] : EN_TEXT['aria:' + k]);
   });
+  document.querySelectorAll('.cv-link').forEach(function (a) {
+    a.href = zh ? 'Zaidan_Rafi_CV_ZH.pdf' : 'Zaidan_Muhammad_Rafi_CV.pdf';
+  });
   document.documentElement.lang = zh ? 'zh-Hant-TW' : 'en';
   document.title = zh ? ZH['meta.title'] : EN_META.title;
   var md = document.getElementById('metaDesc'); if (md) md.content = zh ? ZH['meta.desc'] : EN_META.desc;
