@@ -332,10 +332,10 @@ var TL = [
     wins: ['1st Place, PKM Dekan Cup'],
     cats: [
       { lbl: 'Organization', items: [{ t: 'IoT UB, Research & Development Staff', s: 'July 2022 – March 2024. IoT research and development, building interfaces, leading the web division.' }] },
-      { lbl: 'Projects', items: [{ t: 'Project Cangar: hydroponic farm monitoring', s: 'cangar-europa-server.web.app · Website division lead · Vue.js + Firebase · Real-time IoT monitoring for a hydroponic farm in Cangar, Malang.' }] },
+      { lbl: 'Projects', items: [{ t: 'Project Cangar: hydroponic farm monitoring', s: 'Led the website division. Built real-time IoT monitoring for a hydroponic farm in Cangar, Malang, with Vue.js and Firebase (cangar-europa-server.web.app).' }] },
       { lbl: 'Awards', items: [
-        { t: '1st Place, PKM Dekan Cup scientific proposal competition', s: 'Faculty of Engineering, Universitas Brawijaya · January 2022' },
-        { t: 'Finalist, LP2PKM scientific proposal competition', s: 'Universitas Brawijaya · February 2022' }
+        { t: '1st Place, PKM Dekan Cup scientific proposal competition', s: 'Faculty of Engineering, Universitas Brawijaya, January 2022' },
+        { t: 'Finalist, LP2PKM scientific proposal competition', s: 'Universitas Brawijaya, February 2022' }
       ]},
       { lbl: 'Skills', items: [{ t: 'A full IoT pipeline: sensor, connectivity, real-time web interface' }, { t: 'Real-time dashboards with Vue.js and Firebase' }] }
     ]
@@ -353,15 +353,15 @@ var TL = [
         { t: 'Electronics Project Intern, BRIN Aerospace Research Organization (ORPA), Bogor', s: 'Dec 2023 – Feb 2024. Assembled a rocket vibration monitoring and control system, linking external ADC/DAC modules to an Arduino Mega 2560 over SPI. Added PID control to improve the response and the reliability of data readings.' }
       ]},
       { lbl: 'Projects', items: [
-        { t: 'IoT UB organization website', s: 'iot.ub.ac.id · Coordinator · Vue.js + Tailwind CSS + Firebase' },
+        { t: 'IoT UB organization website', s: 'Coordinated the build of iot.ub.ac.id with Vue.js, Tailwind CSS and Firebase.' },
         { t: 'PKM community service: waste processing at Tumpang Lestari TPS', s: 'Pyrolysis and RDF incineration, integrated with an electrical monitoring system. I handled finances, social media and external relations.' },
         { t: 'Object detection with YOLOv8 and Google Colab', s: 'Personal exploration of computer vision.' }
       ]},
       { lbl: 'IP Registration', items: [{ t: 'PIKO: waste processing technology (registered IP, Indonesia)', s: 'Pyrolysis, condensation, RDF incineration and electrical monitoring. October 2023' }] },
       { lbl: 'Awards', items: [
-        { t: '1st Place, LMI National Essay Competition', s: 'Lembaga Manajemen Infaq · Environment theme · November 2023' },
+        { t: '1st Place, LMI National Essay Competition', s: 'Lembaga Manajemen Infaq, environment theme, November 2023' },
         { t: 'Finalist and incubation, TUJUBELASAN startup program', s: 'Co-founder and CFO; reached the final and the incubation stage.' },
-        { t: 'PKM 2023 national funding', s: 'Indonesian Ministry of Education, Culture, Research and Technology · June 2023' }
+        { t: 'PKM 2023 national funding', s: 'Indonesian Ministry of Education, Culture, Research and Technology, June 2023' }
       ]}
     ]
   },
@@ -381,15 +381,15 @@ var TL = [
       { lbl: 'Projects', items: [
         { t: 'PT INKA: Ethernet Modbus TCP/IP temperature display', s: 'June – July 2024. An Arduino Nano Every reads PLC data over Ethernet with Modbus and drives an LED matrix, built to railway manufacturing standards.' },
         { t: 'WaterGuard: smart fish pond monitoring', s: 'Solar-powered buoy measuring turbidity, temperature and TDS, with a real-time dashboard. Deployed at an Islamic boarding school in Jember.' },
-        { t: 'IoT Lab website', s: 'iot.ub.ac.id/#/laboratory · Coordinator.' }
+        { t: 'IoT Lab website', s: 'Coordinated the build of iot.ub.ac.id/#/laboratory.' }
       ]},
       { lbl: 'IP & Funding', items: [
         { t: 'Hydrozen: smart IoT aquarium system (registered IP, Indonesia)', s: 'Automatic water temperature control. June 2024' },
         { t: 'PMW funding and Brawijaya Start-up Action funding (8-person WPT team)', s: 'June and December 2024' }
       ]},
       { lbl: 'Awards', items: [
-        { t: '2nd Place, TSIC 2024 national innovation competition', s: 'Universitas Negeri Surabaya (UNESA) · Occupational health and safety category · July 2024' },
-        { t: '3rd Place, SIGMA Business Plan Competition', s: 'Telkom University · AI-based smart farming · November 2024' }
+        { t: '2nd Place, TSIC 2024 national innovation competition', s: 'Universitas Negeri Surabaya (UNESA), occupational health and safety category, July 2024' },
+        { t: '3rd Place, SIGMA Business Plan Competition', s: 'Telkom University, AI-based smart farming, November 2024' }
       ]},
       { lbl: 'Research Direction', items: [{ t: 'Chose Wireless Power Transfer as my focus', s: 'WPT has real demand and relatively few people working on it. I started studying magnetics, resonance and power electronics in depth.' }] }
     ]
@@ -403,12 +403,12 @@ var TL = [
     wins: ['BSc graduate', 'TEUB journal paper'],
     cats: [
       { lbl: 'Education', items: [
-        { t: 'BSc Electrical Engineering, Universitas Brawijaya · July 2025', s: 'Minor in Electronics · GPA 3.42 / 4.00' },
+        { t: 'BSc Electrical Engineering, Universitas Brawijaya (July 2025)', s: 'Minor in Electronics, GPA 3.42 / 4.00.' },
         { t: 'Thesis: Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices', s: 'Parallel-parallel resonant topology, PWM-driven half-bridge, hand-wound coils and a custom PCB. Tuned to 140.2 kHz, measured across loads, and validated with an oscilloscope and a FLIR thermal camera.' }
       ]},
-      { lbl: 'Publication', items: [{ t: 'TEUB Student Journal, July 2025', s: '"Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices" · elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264' }] },
-      { lbl: 'Startup', items: [{ t: 'Charless: WPT wireless charging startup', s: 'Led an 8-person team · 2 grants · MVP: a wireless charging table that charges a phone placed on its surface, with no separate pad.' }] },
-      { lbl: 'Certifications', items: [{ t: 'IELTS 6.5 · TOEFL ITP 570 · Microsoft Office IT test', s: 'September and July 2025' }] }
+      { lbl: 'Publication', items: [{ t: 'TEUB Student Journal, July 2025', s: '"Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices", elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264' }] },
+      { lbl: 'Startup', items: [{ t: 'Charless: WPT wireless charging startup', s: 'Led an 8-person team that won 2 grants. Our MVP is a wireless charging table that charges a phone placed on its surface, with no separate pad.' }] },
+      { lbl: 'Certifications', items: [{ t: 'IELTS 6.5, TOEFL ITP 570 and a Microsoft Office IT test', s: 'September and July 2025' }] }
     ]
   },
   {
@@ -420,7 +420,7 @@ var TL = [
     wins: ['MSc, NSYSU', 'MOE Taiwan Scholarship'],
     cats: [
       { lbl: 'Education', items: [
-        { t: 'MSc, International Master\'s Program in Electrical Power Engineering (IMEPE), National Sun Yat-sen University', s: 'Sep 2026 – Aug 2028 · Kaohsiung, Taiwan · MOE Taiwan Scholarship (Taiwan Ministry of Education)' },
+        { t: 'MSc, International Master\'s Program in Electrical Power Engineering (IMEPE), National Sun Yat-sen University', s: 'Sep 2026 – Aug 2028 in Kaohsiung, Taiwan, on an MOE Taiwan Scholarship (Taiwan Ministry of Education).' },
         { t: 'Courses: Power Electronic Converters, Power Conditioning Systems, Renewable Energy Applications' }
       ]},
       { lbl: 'Work', items: [
@@ -452,11 +452,19 @@ function tlPick(idx, byUser, dir) {
   dir = dir || (idx >= tlCur ? 1 : -1);
   tlCur = idx;
   document.querySelectorAll('.tl-tab').forEach(function(t, i) { t.classList.toggle('on', i === idx); });
+  tlScrollTab(idx);
   tlRenderCard(idx, true, dir);
   if (!byUser) {
     tlResetBars();
     tlStartBar();
   }
+}
+
+function tlScrollTab(idx) {
+  var tabs = document.getElementById('tlTabs');
+  var t = tabs && tabs.querySelectorAll('.tl-tab')[idx];
+  if (!t || tabs.scrollWidth <= tabs.clientWidth) return;
+  tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' });
 }
 
 function tlNav(dir) {
@@ -593,6 +601,7 @@ function tlAdvance() {
 tlCur = TL.length - 1;
 tlRenderCard(tlCur, false);
 document.querySelectorAll('.tl-tab').forEach(function(t, i) { t.classList.toggle('on', i === tlCur); });
+tlScrollTab(tlCur);
 tlResetBars();
 
 var tlSection = document.getElementById('journey');
@@ -617,7 +626,7 @@ if ('IntersectionObserver' in window && tlSection) {
 var PROJ = {
   rafinance: {
     title: 'Rafinance',
-    sub: 'Personal Finance Web App · Vue.js + Firebase · Vercel',
+    sub: 'Personal finance web app built with Vue.js and Firebase, hosted on Vercel',
     desc: 'A personal finance web application for tracking income, expenses, and financial goals with a clean, real-time dashboard. Features <b>daily/weekly/monthly cash flow charts</b>, category-based analysis, and financial health indicators. Built with Vue.js 3 + Tailwind CSS, backed by <b>Firebase Realtime Database</b> for instant sync.',
     tags: ['Vue.js 3', 'Tailwind CSS', 'Firebase', 'Vercel', 'Real-time DB', 'UI/UX'],
     imgs: ['img/rafi1.jpeg', 'img/rafi2.jpeg'],
@@ -625,7 +634,7 @@ var PROJ = {
   },
   iotlab: {
     title: 'IoT Lab Website',
-    sub: 'Laboratory Profile · iot.ub.ac.id/#/laboratory · Web Coordinator',
+    sub: 'Lab website at iot.ub.ac.id/#/laboratory, where I was the web coordinator',
     desc: 'Official website for the <b>IoT & Smart Computing Laboratory</b> at Universitas Brawijaya. Designed and developed the full frontend covering lab profile, research areas, organizational structure, and practicum resources. Built with Vue.js 3 + Tailwind CSS + <b>Google Firebase</b>, hosted on UB\'s internal server.',
     tags: ['Vue.js 3', 'Tailwind CSS', 'Firebase', 'Internal Hosting UB', 'Web Coordinator'],
     imgs: ['img/lab1.jpeg', 'img/lab2.jpeg'],
@@ -633,7 +642,7 @@ var PROJ = {
   },
   icgc: {
     title: 'ICGC Registration Platform',
-    sub: 'Indonesian Collegiate Golf Competition · icgc-registration.web.app',
+    sub: 'Indonesian Collegiate Golf Competition, icgc-registration.web.app',
     desc: 'Registration platform for the <b>Indonesian Collegiate Golf Competition</b>, a national collegiate tournament. Features multi-step participant registration, identity document management, team grouping, and admin verification. UI follows a <b>dark-gold brand identity</b>. Built with Vue.js 3 + Supabase (PostgreSQL), hosted on Firebase.',
     tags: ['Vue.js 3', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Firebase Hosting', 'UI/UX'],
     imgs: ['img/icgc.jpeg'],
@@ -641,21 +650,21 @@ var PROJ = {
   },
   waterguard: {
     title: 'WaterGuard: Smart Fish Pond Monitoring',
-    sub: 'IoT Hardware + Software · CDP Lab UB × FPIK · Jember · Jul 2024 – Mar 2025',
+    sub: 'IoT hardware and software with CDP Lab UB and FPIK, Jember, Jul 2024 – Mar 2025',
     desc: 'A <b>solar-powered floating IoT buoy</b> monitoring fish pond water quality in real time. Deployed at a pesantren in Jember. Monitors <b>turbidity, water temperature, and TDS</b>, transmitting data wirelessly to a custom mobile dashboard. Led a <b>6-person team</b> across hardware, software, programming, and mechanics divisions.',
     tags: ['Arduino', 'MQTT', 'Turbidity Sensor', 'TDS Sensor', 'Temperature', 'Solar Power', 'Mobile UI', 'Team Lead (6 people)'],
     imgs: ['img/wg_app.jpeg', 'img/wg_pond.jpeg', 'img/wg_dev.jpeg', 'img/wg_pres.jpeg']
   },
   inka: {
     title: 'PT INKA: Ethernet Modbus TCP/IP Temperature Display',
-    sub: 'Industrial IoT · Commissioned · PT Industri Kereta Api · 2024',
+    sub: 'Commissioned industrial IoT project for PT Industri Kereta Api, 2024',
     desc: 'A commissioned hardware module for <b>PT INKA</b> (Indonesia\'s state railway manufacturer). Reads temperature and humidity directly from an industrial <b>PLC via Ethernet using Modbus TCP/IP</b>, then displays it on an <b>LED matrix running text display</b> inside train passenger compartments. Built on Arduino Nano Every, validated with Modbus Poll and real PLC communication.',
     tags: ['Arduino Nano Every', 'Modbus TCP/IP', 'Ethernet', 'LED Matrix', 'PLC Integration', 'Industrial IoT', 'Configurable IP/ID'],
     imgs: ['img/inka_led.jpeg', 'img/inka_pcb.jpeg', 'img/inka_sw.jpeg', 'img/inka_lab.jpeg']
   },
   wpt: {
     title: 'WPT System for IoT Devices (Undergraduate Thesis)',
-    sub: 'Published · TEUB Journal 2025 · 140 kHz Magnetic Resonant Coupling',
+    sub: '140 kHz magnetic resonant coupling, published in the TEUB journal (2025)',
     desc: 'Designed and built a <b>140 kHz parallel-parallel resonant WPT system</b> for low-power IoT devices, from scratch. A <b>PWM-driven half-bridge</b> drives the resonant tank through hand-wound copper coils on custom <b>PCBs</b>. Tuned to <b>140.2 kHz</b>, then measured performance across loads on real hardware, with oscilloscope and <b>FLIR E30</b> thermal validation. Published in the TEUB journal (2025). Technical foundation of the Charless WPT startup, which won Brawijaya Start-up Action funding.',
     tags: ['WPT', 'Magnetic Resonant Coupling', '140 kHz', 'P-P Compensation', 'Half-bridge', 'PWM', 'Custom Coil', 'PCB Design', 'LTspice', 'FLIR Thermal', 'Oscilloscope', 'Published'],
     imgs: ['img/wpt_test.jpeg', 'img/wpt_osc.jpeg', 'img/wpt_pcb.jpeg', 'img/wpt_therm.jpeg'],
