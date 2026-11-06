@@ -6,6 +6,10 @@ var ZH = {
   'meta.title': '趙伊登 Zaidan Rafi｜中山大學電機電力工程碩士生，研究無線電能傳輸',
   'meta.desc': '趙伊登（Zaidan Muhammad Rafi），國立中山大學電機電力工程國際碩士學位學程碩士生，研究如何提升無線電能傳輸（WPT）效率。寒暑假可實習。',
 
+  'og.title': '趙伊登 Zaidan Muhammad Rafi｜無線電能傳輸與電力電子',
+  'og.desc': '國立中山大學電機電力工程碩士生，研究如何讓無線電能傳輸更有效率。具期刊論文、兩項智財登記與 WPT 創業補助，寒暑假可以實習。',
+  'og.imgAlt': '趙伊登（Zaidan Muhammad Rafi），國立中山大學電機電力工程碩士生',
+
   // nav
   'nav.skills': '技能',
   'nav.journey': '歷程',

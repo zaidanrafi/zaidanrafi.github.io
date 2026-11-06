@@ -3,38 +3,52 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Zaidan Rafi | MSc Electrical Power Engineering, WPT & Power Electronics</title>
+  <script>
+    // Old shared links (?lang=zh-TW) and first-time Chinese-language visitors go to /zh-tw/.
+    (function () {
+      if (document.documentElement.getAttribute('data-lang') === 'zh') return;
+      var q = new URLSearchParams(location.search).get('lang'), saved = null;
+      try { saved = localStorage.getItem('zr_lang'); } catch (e) {}
+      var zhBrowser = (navigator.languages || [navigator.language || '']).some(function (l) { return /^zh/i.test(l); });
+      if ((q && /^zh/i.test(q)) || (!q && !saved && zhBrowser)) location.replace('/zh-tw/' + location.hash);
+    })();
+  </script>
+  <title>Zaidan Muhammad Rafi | WPT &amp; Power Electronics, NSYSU</title>
+  <meta name="description" content="Zaidan Muhammad Rafi (趙伊登) is an MSc student at National Sun Yat-sen University, Taiwan, researching efficient wireless power transfer. Open to internships."/>
   <meta name="google-site-verification" content="NMZUinbM27jAgfKmvwNhkKW8KKbpw7Dh9Q3jWD35H5w" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%23E0A26A%22/><stop offset=%22100%25%22 stop-color=%22%2396602A%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22url(%23g)%22/><text x=%2250%22 y=%2250%22 font-size=%2265%22 font-family=%22serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>Z</text></svg>">
-  <meta name="description" id="metaDesc" content="Official portfolio of Zaidan Muhammad Rafi (趙伊登), also known as Zaidan Rafi. MSc student in Electrical Power Engineering at National Sun Yat-sen University (NSYSU), Taiwan, researching efficient Wireless Power Transfer (WPT). Open to internships during winter and summer breaks."/>
-  <meta name="keywords" content="Zaidan Rafi, Zaidan Muhammad Rafi, 趙伊登, wireless power transfer, WPT researcher, power electronics, electrical power engineering, NSYSU, National Sun Yat-sen University, IoT engineer, embedded systems, Universitas Brawijaya, internship Taiwan"/>
   <meta name="author" content="Zaidan Muhammad Rafi"/>
   <meta name="robots" content="index, follow, max-image-preview:large"/>
-  <meta name="googlebot" content="index, follow, max-image-preview:large"/>
-  <link rel="canonical" href="https://zaidanrafi.github.io/" id="canonical"/>
+  <link rel="canonical" href="https://zaidanrafi.github.io/"/>
   <link rel="alternate" hreflang="en" href="https://zaidanrafi.github.io/"/>
-  <link rel="alternate" hreflang="zh-Hant-TW" href="https://zaidanrafi.github.io/?lang=zh-TW"/>
+  <link rel="alternate" hreflang="zh-TW" href="https://zaidanrafi.github.io/zh-tw/"/>
   <link rel="alternate" hreflang="x-default" href="https://zaidanrafi.github.io/"/>
   <meta property="og:type" content="profile"/>
-  <meta property="og:site_name" content="Zaidan Muhammad Rafi Portfolio"/>
-  <meta property="og:title" content="Zaidan Muhammad Rafi (Zaidan Rafi) | WPT & Power Electronics, MSc @ NSYSU"/>
-  <meta property="og:description" content="MSc student at NSYSU, Taiwan, researching how to make Wireless Power Transfer more efficient. Journal paper, two patents, WPT startup funding. Open to internships."/>
+  <meta property="og:site_name" content="Zaidan Muhammad Rafi"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:locale:alternate" content="zh_TW"/>
+  <meta property="og:title" content="Zaidan Muhammad Rafi | Wireless Power Transfer &amp; Power Electronics"/>
+  <meta property="og:description" content="MSc student at NSYSU, Taiwan, researching more efficient wireless power transfer. Journal paper, two registered IPs and WPT startup funding. Open to internships."/>
   <meta property="og:url" content="https://zaidanrafi.github.io/"/>
-  <meta property="og:image" content="https://zaidanrafi.github.io/img/photo.jpeg"/>
-  <meta property="profile:first_name" content="Zaidan"/>
+  <meta property="og:image" content="https://zaidanrafi.github.io/img/og.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Zaidan Muhammad Rafi, MSc student in Electrical Power Engineering at NSYSU"/>
+  <meta property="profile:first_name" content="Zaidan Muhammad"/>
   <meta property="profile:last_name" content="Rafi"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Zaidan Muhammad Rafi (Zaidan Rafi)"/>
-  <meta name="twitter:description" content="MSc student in Electrical Power Engineering at NSYSU, Taiwan, researching efficient Wireless Power Transfer."/>
-  <meta name="twitter:image" content="https://zaidanrafi.github.io/img/photo.jpeg"/>
+  <meta name="twitter:title" content="Zaidan Muhammad Rafi | WPT &amp; Power Electronics"/>
+  <meta name="twitter:description" content="MSc student at NSYSU, Taiwan, researching more efficient wireless power transfer. Open to internships."/>
+  <meta name="twitter:image" content="https://zaidanrafi.github.io/img/og.png"/>
   <meta name="theme-color" content="#c97d3a"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://zaidanrafi.github.io/#zaidan-muhammad-rafi","name":"Zaidan Muhammad Rafi","givenName":"Zaidan","familyName":"Rafi","alternateName":["Zaidan Rafi","Zaidan Muhammad Rafi","趙伊登"],"url":"https://zaidanrafi.github.io/","image":"https://zaidanrafi.github.io/img/photo.jpeg","email":"mailto:zzaidanrafi@gmail.com","jobTitle":"MSc Student, Electrical Power Engineering","description":"Zaidan Muhammad Rafi, also known as Zaidan Rafi, is an MSc student in Electrical Power Engineering at National Sun Yat-sen University (NSYSU), Taiwan, researching efficient Wireless Power Transfer (WPT). He holds a BSc in Electrical Engineering from Universitas Brawijaya.","affiliation":{"@type":"CollegeOrUniversity","name":"National Sun Yat-sen University","url":"https://www.nsysu.edu.tw/"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universitas Brawijaya","url":"https://ub.ac.id/"},"knowsAbout":["Wireless Power Transfer","WPT","Power Electronics","Resonant Converters","DC-DC Converters","Electrical Power Engineering","Internet of Things","IoT","Embedded Systems","Modbus TCP/IP","Python"],"sameAs":["https://www.linkedin.com/in/zaidanrafi","https://github.com/zaidanrafi","https://instagram.com/zaidanrafi_"]},{"@type":"WebSite","@id":"https://zaidanrafi.github.io/#website","url":"https://zaidanrafi.github.io/","name":"Zaidan Muhammad Rafi Portfolio","alternateName":"Zaidan Rafi Portfolio","inLanguage":"en","publisher":{"@id":"https://zaidanrafi.github.io/#zaidan-muhammad-rafi"}},{"@type":"ProfilePage","@id":"https://zaidanrafi.github.io/#profile-page","url":"https://zaidanrafi.github.io/","name":"Zaidan Muhammad Rafi (Zaidan Rafi) Portfolio","description":"Official portfolio profile page for Zaidan Muhammad Rafi, also known as Zaidan Rafi.","inLanguage":"en","isPartOf":{"@id":"https://zaidanrafi.github.io/#website"},"mainEntity":{"@id":"https://zaidanrafi.github.io/#zaidan-muhammad-rafi"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://zaidanrafi.github.io/#person","name":"Zaidan Muhammad Rafi","alternateName":["Zaidan Rafi","趙伊登"],"givenName":"Zaidan Muhammad","familyName":"Rafi","url":"https://zaidanrafi.github.io/","image":"https://zaidanrafi.github.io/img/photo.jpeg","email":"mailto:zzaidanrafi@gmail.com","jobTitle":"MSc Student, Electrical Power Engineering","description":"MSc student in Electrical Power Engineering at National Sun Yat-sen University (NSYSU), Taiwan, researching efficient wireless power transfer (WPT). BSc in Electrical Engineering from Universitas Brawijaya.","affiliation":{"@type":"CollegeOrUniversity","name":"National Sun Yat-sen University","alternateName":"國立中山大學","url":"https://www.nsysu.edu.tw/"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universitas Brawijaya","url":"https://ub.ac.id/"},"address":{"@type":"PostalAddress","addressLocality":"Kaohsiung","addressCountry":"TW"},"knowsLanguage":["id","en","zh-Hant"],"knowsAbout":["Wireless Power Transfer","Magnetic Resonant Coupling","Power Electronics","DC-DC Converters","Electrical Power Engineering","Internet of Things","Embedded Systems","Modbus TCP/IP","PCB Design"],"award":["MOE Taiwan Scholarship","Brawijaya Start-up Action Funding 2024","2nd Place, Transport Safety Innovation Competition 2024","3rd Place, SIGMA Business Plan Competition 2024"],"sameAs":["https://www.linkedin.com/in/zaidanrafi","https://github.com/zaidanrafi"]},{"@type":"ScholarlyArticle","@id":"https://zaidanrafi.github.io/#wpt-paper","headline":"Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices","author":{"@id":"https://zaidanrafi.github.io/#person"},"datePublished":"2025-07","isPartOf":{"@type":"Periodical","name":"TEUB Student Journal, Electrical Engineering, Universitas Brawijaya"},"url":"https://elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264","about":["Wireless Power Transfer","Magnetic Resonant Coupling","Internet of Things"]},{"@type":"WebSite","@id":"https://zaidanrafi.github.io/#website","url":"https://zaidanrafi.github.io/","name":"Zaidan Muhammad Rafi","inLanguage":["en","zh-Hant-TW"],"publisher":{"@id":"https://zaidanrafi.github.io/#person"}},{"@type":"ProfilePage","@id":"https://zaidanrafi.github.io/#profile","url":"https://zaidanrafi.github.io/","name":"Zaidan Muhammad Rafi | WPT & Power Electronics","inLanguage":"en","isPartOf":{"@id":"https://zaidanrafi.github.io/#website"},"mainEntity":{"@id":"https://zaidanrafi.github.io/#person"},"dateModified":"2026-11-06"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Outfit:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet" id="fonts"/>
+  <link rel="preload" as="image" href="/img/photo.jpeg"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous" defer></script>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
-  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
@@ -68,7 +82,7 @@
       <div class="avail" data-anim data-i18n="hero.avail"><span class="avail-dot"></span>Available for internships in winter and summer breaks, and full-time from 2028</div>
       <p class="hero-bio" data-anim data-i18n="hero.bio">Master's student at <b>National Sun Yat-sen University</b> (NSYSU), researching how to make <b>Wireless Power Transfer more efficient</b>. As an undergraduate I designed and built a <b>140 kHz resonant WPT prototype</b> and published the results, then worked as an <b>IoT NOC Engineer</b> handling live network and device incidents. MOE Taiwan Scholarship recipient.</p>
       <div class="hero-cta" data-anim>
-        <a href="Zaidan_Muhammad_Rafi_CV.pdf" class="btn btn-primary cv-link" target="_blank" rel="noopener" data-i18n="hero.cv">Download CV</a>
+        <a href="/Zaidan_Muhammad_Rafi_CV.pdf" class="btn btn-primary cv-link" target="_blank" rel="noopener" data-i18n="hero.cv">Download CV</a>
         <a href="#projects" class="btn btn-ghost" data-i18n="hero.cta1">See my work</a>
         <a href="#contact"  class="btn btn-ghost" data-i18n="hero.cta2">Get in touch</a>
       </div>
@@ -80,18 +94,18 @@
       </div>
     </div>
     <div class="photo-wrap" data-anim>
-      <div class="photo-frame"><img src="img/photo.jpeg" alt="Zaidan Muhammad Rafi"/></div>
+      <div class="photo-frame"><img src="/img/photo.jpeg" alt="Portrait of Zaidan Muhammad Rafi" width="400" height="600" fetchpriority="high"/></div>
       <div class="photo-deco"></div>
     </div>
   </div>
   <div class="hero-mob" data-anim>
     <div class="hm-top">
-      <div class="hm-photo"><img src="img/photo.jpeg" alt="Zaidan Rafi"/></div>
-      <div><div class="hm-ey" data-i18n="hm.ey">MSc student, NSYSU</div><h1 class="hm-name">Zaidan <em>Rafi</em></h1><p class="hm-role" data-i18n="hm.role"><span class="zh" lang="zh-Hant">趙伊登</span>, Kaohsiung, Taiwan</p></div>
+      <div class="hm-photo"><img src="/img/photo.jpeg" alt="Portrait of Zaidan Muhammad Rafi" width="400" height="600"/></div>
+      <div><div class="hm-ey" data-i18n="hm.ey">MSc student, NSYSU</div><p class="hm-name">Zaidan <em>Rafi</em></p><p class="hm-role" data-i18n="hm.role"><span class="zh" lang="zh-Hant">趙伊登</span>, Kaohsiung, Taiwan</p></div>
     </div>
     <div class="avail" data-i18n="hm.avail"><span class="avail-dot"></span>Available for internships in winter and summer breaks</div>
     <p class="hm-bio" data-i18n="hm.bio">Researching <strong>more efficient Wireless Power Transfer</strong> at NSYSU, Taiwan. Built a 140 kHz resonant WPT prototype and published the results; former <strong>IoT NOC Engineer</strong>.</p>
-    <div class="hm-cta"><a href="Zaidan_Muhammad_Rafi_CV.pdf" class="btn btn-primary cv-link" target="_blank" rel="noopener" data-i18n="hero.cv">Download CV</a><a href="#contact" class="btn btn-ghost" data-i18n="hm.contact">Contact</a></div>
+    <div class="hm-cta"><a href="/Zaidan_Muhammad_Rafi_CV.pdf" class="btn btn-primary cv-link" target="_blank" rel="noopener" data-i18n="hero.cv">Download CV</a><a href="#contact" class="btn btn-ghost" data-i18n="hm.contact">Contact</a></div>
     <div class="stats-row"><div class="stat"><span class="stat-num">1</span><span class="stat-lbl" data-i18n="stat.paper">Journal paper</span></div><div class="stat"><span class="stat-num">2</span><span class="stat-lbl" data-i18n="stat.patents">IP registrations</span></div><div class="stat"><span class="stat-num">150+</span><span class="stat-lbl" data-i18n="stat.students">Students taught</span></div></div>
   </div>
 </div>
@@ -156,34 +170,34 @@
   </div>
   <div class="proj-panel" id="panel-web">
     <div class="pcard" onclick="openProj('rafinance')" data-anim>
-      <div class="pcard-imgs"><div class="duo"><img src="img/rafi1.jpeg" alt="Rafinance dashboard" loading="lazy"/><img src="img/rafi2.jpeg" alt="Rafinance cashflow" loading="lazy"/></div><span class="pcard-num">01</span></div>
+      <div class="pcard-imgs"><div class="duo"><img src="/img/rafi1.jpeg" alt="Rafinance dashboard screen" loading="lazy"/><img src="/img/rafi2.jpeg" alt="Rafinance cash flow chart" loading="lazy"/></div><span class="pcard-num">01</span></div>
       <div class="pcard-body"><div class="pcard-name">Rafinance</div><div class="pcard-sub">rafinance-peach.vercel.app</div><div class="pcard-desc" data-i18n="p.rafi.desc">Personal finance web app for tracking income, expenses and savings goals, synced in real time with Firebase.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">Vercel</span></div></div>
       <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('iotlab')" data-anim>
-      <div class="pcard-imgs"><div class="duo"><img src="img/lab1.jpeg" alt="IoT Lab" loading="lazy"/><img src="img/lab2.jpeg" alt="IoT Lab practicum" loading="lazy"/></div><span class="pcard-num">02</span></div>
+      <div class="pcard-imgs"><div class="duo"><img src="/img/lab1.jpeg" alt="IoT Lab website page" loading="lazy"/><img src="/img/lab2.jpeg" alt="IoT Lab website practicum page" loading="lazy"/></div><span class="pcard-num">02</span></div>
       <div class="pcard-body"><div class="pcard-name" data-i18n="p.lab.name">IoT Lab Website</div><div class="pcard-sub">iot.ub.ac.id/#/laboratory</div><div class="pcard-desc" data-i18n="p.lab.desc">Official site of the IoT &amp; Smart Computing Lab at UB: profile, research, structure and practicum resources.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag" data-i18n="tag.internal">Internal UB</span></div></div>
       <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('icgc')" data-anim>
-      <div class="pcard-imgs"><img class="si" src="img/icgc.jpeg" alt="ICGC" loading="lazy" style="object-position:center 15%"/><span class="pcard-num">03</span></div>
+      <div class="pcard-imgs"><img class="si" src="/img/icgc.jpeg" alt="ICGC registration website" loading="lazy" style="object-position:center 15%"/><span class="pcard-num">03</span></div>
       <div class="pcard-body"><div class="pcard-name" data-i18n="p.icgc.name">ICGC Registration</div><div class="pcard-sub">icgc-registration.web.app</div><div class="pcard-desc" data-i18n="p.icgc.desc">Registration platform for the Indonesian Collegiate Golf Competition, with a dark-gold branded UI.</div><div class="tags sm"><span class="tag hi">Vue.js 3</span><span class="tag hi">Tailwind CSS</span><span class="tag">Supabase</span><span class="tag">Firebase</span></div></div>
       <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
   </div>
   <div class="proj-panel on" id="panel-elec">
     <div class="pcard" onclick="openProj('wpt')" data-anim>
-      <div class="pcard-imgs"><div class="quad"><img src="img/wpt_test.jpeg" alt="WPT test" loading="lazy"/><img src="img/wpt_osc.jpeg" alt="WPT osc" loading="lazy"/><img src="img/wpt_pcb.jpeg" alt="WPT PCB" loading="lazy"/><img src="img/wpt_therm.jpeg" alt="WPT thermal" loading="lazy"/></div><span class="pcard-num">01</span></div>
+      <div class="pcard-imgs"><div class="quad"><img src="/img/wpt_test.jpeg" alt="140 kHz WPT test bench with driver board and coils" loading="lazy"/><img src="/img/wpt_osc.jpeg" alt="Oscilloscope showing WPT resonant waveforms" loading="lazy"/><img src="/img/wpt_pcb.jpeg" alt="Custom WPT driver and receiver PCBs" loading="lazy"/><img src="/img/wpt_therm.jpeg" alt="FLIR thermal check of the WPT driver" loading="lazy"/></div><span class="pcard-num">01</span></div>
       <div class="pcard-body"><div class="pcard-name" data-i18n="p.wpt.name">WPT System for IoT Devices</div><div class="pcard-sub" data-i18n="p.wpt.sub">Undergraduate thesis, published in TEUB (2025)</div><div class="pcard-desc" data-i18n="p.wpt.desc">140 kHz parallel-parallel resonant WPT system with a PWM-driven half-bridge, hand-wound coils and custom PCBs, tuned and measured across loads on real hardware.</div><div class="tags sm"><span class="tag hi">WPT</span><span class="tag hi" data-i18n="tag.analogc">Analog Circuit</span><span class="tag" data-i18n="tag.custompcb">Custom PCB</span><span class="tag" data-i18n="tag.published">Published</span></div></div>
       <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('waterguard')" data-anim>
-      <div class="pcard-imgs"><div class="quad"><img src="img/wg_app.jpeg" alt="WG app" loading="lazy"/><img src="img/wg_pond.jpeg" alt="WG pond" loading="lazy"/><img src="img/wg_dev.jpeg" alt="WG device" loading="lazy"/><img src="img/wg_pres.jpeg" alt="WG pres" loading="lazy"/></div><span class="pcard-num">02</span></div>
+      <div class="pcard-imgs"><div class="quad"><img src="/img/wg_app.jpeg" alt="WaterGuard monitoring app" loading="lazy"/><img src="/img/wg_pond.jpeg" alt="WaterGuard buoy deployed in a fish pond" loading="lazy"/><img src="/img/wg_dev.jpeg" alt="WaterGuard solar-powered buoy prototype" loading="lazy"/><img src="/img/wg_pres.jpeg" alt="Presenting the WaterGuard project" loading="lazy"/></div><span class="pcard-num">02</span></div>
       <div class="pcard-body"><div class="pcard-name">WaterGuard</div><div class="pcard-sub" data-i18n="p.wg.sub">Team lead, fish pond monitoring in Jember (2024–2025)</div><div class="pcard-desc" data-i18n="p.wg.desc">Led a six-person team building a solar-powered IoT buoy that tracks turbidity, temperature & TDS in a fish pond at a pesantren.</div><div class="tags sm"><span class="tag hi">Arduino</span><span class="tag hi">MQTT</span><span class="tag" data-i18n="tag.solar">Solar</span><span class="tag" data-i18n="tag.multisensor">Multi-sensor</span></div></div>
       <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
     <div class="pcard" onclick="openProj('inka')" data-anim>
-      <div class="pcard-imgs"><div class="quad"><img src="img/inka_led.jpeg" alt="INKA LED" loading="lazy"/><img src="img/inka_pcb.jpeg" alt="INKA module" loading="lazy"/><img src="img/inka_sw.jpeg" alt="INKA SW" loading="lazy"/><img src="img/inka_lab.jpeg" alt="INKA lab" loading="lazy"/></div><span class="pcard-num">03</span></div>
+      <div class="pcard-imgs"><div class="quad"><img src="/img/inka_led.jpeg" alt="LED matrix temperature display for PT INKA" loading="lazy"/><img src="/img/inka_pcb.jpeg" alt="Arduino Nano Every with Ethernet module" loading="lazy"/><img src="/img/inka_sw.jpeg" alt="PT INKA display module software testing" loading="lazy"/><img src="/img/inka_lab.jpeg" alt="PT INKA display module lab test" loading="lazy"/></div><span class="pcard-num">03</span></div>
       <div class="pcard-body"><div class="pcard-name" data-i18n="p.inka.name">PT INKA Ethernet Modbus Module</div><div class="pcard-sub" data-i18n="p.inka.sub">Industrial IoT with Modbus TCP/IP and an LED matrix</div><div class="pcard-desc" data-i18n="p.inka.desc">Custom module that reads temperature and humidity from a PLC over Ethernet (Modbus) and shows them on an LED matrix in train cars.</div><div class="tags sm"><span class="tag hi">Modbus TCP/IP</span><span class="tag hi">Arduino Nano</span><span class="tag" data-i18n="tag.ethernet">Ethernet</span><span class="tag">PLC</span></div></div>
       <div class="pcard-hint" data-i18n="hint">↗ view details</div>
     </div>
@@ -236,7 +250,7 @@
   <div class="lb-dots" id="lbDots"></div>
 </div>
 
-<script src="i18n.js"></script>
-<script src="app.js"></script>
+<script src="/i18n.js" defer></script>
+<script src="/app.js" defer></script>
 </body>
 </html>
