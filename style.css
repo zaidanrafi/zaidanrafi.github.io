@@ -342,8 +342,14 @@ footer{max-width:1160px;margin:0 auto;padding:2rem 5rem;display:flex;align-items
 #cCaptcha{margin:.25rem 0 1rem}
 #cCaptcha:empty{display:none}
 @media(prefers-reduced-motion:reduce){.avail-dot{animation:none}}
-.hero-mob .stats-row{gap:1.4rem;margin-top:1.5rem;flex-wrap:nowrap}
-.hero-mob .stat-lbl{white-space:nowrap}
+.hero-mob .stats-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+.hero-mob .stat-lbl{white-space:normal;line-height:1.35}
+.avail{max-width:100%;line-height:1.45}
+.avail-dot{align-self:flex-start;margin-top:.38em}
+.hero-mob .avail{border-radius:12px}
+@media(max-width:600px){
+  .proj-tab{flex:1 1 0;white-space:normal;text-align:center;padding:.6rem .5rem;font-size:.68rem;letter-spacing:.04em;line-height:1.35}
+}
 
 /* language switch + Traditional Chinese typography */
 .nav-right{display:flex;align-items:center;gap:.9rem}
@@ -355,3 +361,5 @@ html[lang^="zh"] .contact-h em,html[lang^="zh"] .tl-body em{font-style:normal}
 html[lang^="zh"] .hero-bio,html[lang^="zh"] .hm-bio,html[lang^="zh"] .contact-sub,html[lang^="zh"] .pcard-desc{font-weight:400;letter-spacing:.02em}
 html[lang^="zh"] .s-title,html[lang^="zh"] .contact-h{letter-spacing:0}
 html[lang^="zh"] .nav-links a,html[lang^="zh"] .stat-lbl,html[lang^="zh"] .fg label{letter-spacing:.12em}
+.hero-mob .hm-bio{max-width:34rem}
+.hero-mob .stats-row{max-width:26rem}
