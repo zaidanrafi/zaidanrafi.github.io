@@ -12,7 +12,20 @@ const vm = require('vm');
 
 const root = path.join(__dirname, '..');
 const SITE = 'https://zaidanrafi.github.io';
-let html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+
+// Cache-busting: stamp /style.css, /app.js, /i18n.js with a hash of their
+// content so browsers fetch the new file right after a deploy
+// (GitHub Pages tells browsers to cache assets for 10 minutes).
+const crypto = require('crypto');
+let enHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+for (const file of ['style.css', 'app.js', 'i18n.js']) {
+  const hash = crypto.createHash('sha1').update(fs.readFileSync(path.join(root, file))).digest('hex').slice(0, 8);
+  const re = new RegExp(`(["'])/${file.replace('.', '\\.')}(\\?v=[0-9a-f]+)?\\1`, 'g');
+  if (!re.test(enHtml)) throw new Error(`reference to /${file} not found in index.html`);
+  enHtml = enHtml.replace(re, `$1/${file}?v=${hash}$1`);
+}
+fs.writeFileSync(path.join(root, 'index.html'), enHtml);
+let html = enHtml;
 
 const ctx = {};
 vm.createContext(ctx);
