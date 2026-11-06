@@ -309,127 +309,132 @@ document.addEventListener('keydown', function(e) {
 var TL = [
   {
     year: '2021', focus: 'Foundations',
-    title: 'Starting at Universitas Brawijaya — EE & Web Beginnings',
-    stats: [{ v: '2', k: 'Organisations' }, { v: 'Year 1', k: 'UB EE' }],
-    body: 'First year — building a solid foundation in <b>calculus, electrical engineering, and circuit theory</b> while self-teaching <b>HTML, CSS, JavaScript, and Vue.js</b>. Joined two organisations to accelerate learning from day one.',
-    badges: ['SRE UB', 'GDSC UB', 'Vue.js Self-taught', 'Sololearn Certified', 'Finalist LP2PKM UB'],
-    wins: ['Finalist LP2PKM UB'],
+    title: 'Started Electrical Engineering at Universitas Brawijaya',
+    stats: [{ v: '2', k: 'Student orgs' }, { v: 'Year 1', k: 'EE, UB' }],
+    body: 'First year of my electrical engineering degree: <b>calculus, physics and circuit theory</b>. Alongside my courses I taught myself <b>HTML, CSS, JavaScript and Vue.js</b> and joined two student organizations.',
+    badges: ['SRE UB', 'GDSC UB', 'Self-taught Vue.js', 'Sololearn certificate'],
+    wins: [],
     cats: [
-      { lbl: 'Education', items: [{ t: 'S1 Electrical Engineering (Electronics) — Universitas Brawijaya', s: 'Core: Calculus, Physics, Circuit Theory, Electrical Fundamentals' }] },
-      { lbl: 'Skills Acquired', items: [{ t: 'Web Development self-study: HTML, CSS, JavaScript, Vue.js', s: 'Front-End Web Development — Sololearn Certification' }] },
-      { lbl: 'Organisations', items: [{ t: 'SRE UB (Society of Renewable Energy)', s: 'PIC of SRE UB × UNDP ACCESS Talkshow Day 1.' }, { t: 'GDSC UB (Google Developer Student Club)', s: 'Developer community, collaborative projects.' }] },
-      { lbl: 'Competitions', items: [{ t: 'Finalist — LP2PKM Scientific Proposal Competition, Universitas Brawijaya', s: 'February 2022' }] }
-    ]
-  },
-  {
-    year: '2022', focus: 'IoT Deep Dive',
-    title: 'Joined IoT UB — First Real Project & First Competition Win',
-    stats: [{ v: '🏆 1st', k: 'Dekan Cup' }, { v: '1', k: 'IoT Project' }],
-    body: 'Pivoted <b>fully toward IoT</b>. Joined IoT UB organisation, shipped first real <b>IoT monitoring dashboard</b> as website division lead, and claimed <b>1st place at faculty-level competition</b>.',
-    badges: ['IoT UB — Staff R&D', 'Project Cangar (Kadiv Website)', '🏆 Juara 1 Dekan Cup FT UB'],
-    wins: ['🏆 Juara 1 Dekan Cup FT UB'],
-    cats: [
-      { lbl: 'Organisation', items: [{ t: 'IoT UB — Staff of Research & Development', s: 'July 2022 – March 2024. IoT R&D, building interfaces, leading web division.' }] },
-      { lbl: 'Projects', items: [{ t: 'Project Cangar — Hydroponic Monitoring System', s: 'cangar-europa-server.web.app · PIC Website Division · Vue.js + Firebase · Real-time IoT monitoring in Cangar, Malang.' }] },
-      { lbl: 'Awards', items: [{ t: '🏆 1st Place — Scientific Proposal PKM Dekan Cup', s: 'Faculty of Engineering, Universitas Brawijaya · January 2022' }] },
-      { lbl: 'Skills', items: [{ t: 'IoT pipeline: sensor → connectivity → real-time web UI' }, { t: 'Vue.js + Firebase real-time dashboards' }] }
-    ]
-  },
-  {
-    year: '2023', focus: 'Impact & Recognition',
-    title: 'Patent · PKM Dikti Funded · BRIN Internship · 1st Place National Essay',
-    stats: [{ v: '🏆 1st', k: 'National Essay' }, { v: '1', k: 'Patent' }, { v: 'BRIN', k: 'Internship' }],
-    body: 'The <b>busiest year</b> — PKM Dikti funding, lab assistant role, BRIN internship, national essay championship, and a first patent. Also explored <b>AI (YOLOv8)</b> and startup ideation.',
-    badges: ['📄 Patent: PIKO', '🏆 Juara 1 LMI Essay (National)', 'PKM Dikti Funded', 'BRIN-ORPA Intern', 'Lab Assistant IoT UB', 'Startup Incubation'],
-    wins: ['🏆 Juara 1 LMI Essay (National)', '📄 Patent: PIKO'],
-    cats: [
-      { lbl: 'Work & Lab', items: [
-        { t: 'Lab Assistant — IoT & Smart Computing Lab UB', s: 'March 2023 – March 2024. Developed practicum modules. Taught Basic Microcontroller & Arduino IDE.' },
-        { t: 'Electronics Project Intern — BRIN Aerospace Research Organization (ORPA), Bogor', s: 'Dec 2023 – Feb 2024. Assembled a rocket vibration monitoring & control system, linking external ADC/DAC modules to an Arduino Mega 2560 over SPI. Added PID control to improve response and data reliability.' }
-      ]},
-      { lbl: 'Projects', items: [
-        { t: 'IoT UB Organisation Website', s: 'iot.ub.ac.id · Coordinator · Vue.js + Tailwind CSS + Firebase' },
-        { t: 'PKM Community Service — Waste Processing at Tumpang Lestari TPS', s: 'Pyrolysis + RDF incineration integrated with electrical monitoring.' },
-        { t: 'AI Object Detection — YOLOv8 + Google Colab', s: 'Personal exploration into computer vision.' }
-      ]},
-      { lbl: 'Patents', items: [{ t: '📄 Patent: PIKO — Waste Processing Technology', s: 'Pyrolysis + condensation + RDF incineration + electrical monitoring. October 2023' }] },
-      { lbl: 'Awards', items: [
-        { t: '🏆 1st Place — LMI National Essay Competition', s: 'Lembaga Manajemen Infaq Nasional · Environmental theme · November 2023' },
-        { t: 'Finalist & Incubation — TUJUBELASAN Startup', s: 'CFO role · Reached final + incubation stages.' },
-        { t: 'PKM Dikti 2023 Funded', s: 'Ministry of Education, Culture, Research & Technology RI · June 2023' }
+      { lbl: 'Education', items: [{ t: 'BSc Electrical Engineering (Electronics), Universitas Brawijaya', s: 'Core courses: calculus, physics, circuit theory, electrical fundamentals.' }] },
+      { lbl: 'Skills', items: [{ t: 'Self-taught web development: HTML, CSS, JavaScript, Vue.js', s: 'Front-End Web Development certificate, Sololearn (June 2021).' }] },
+      { lbl: 'Organizations', items: [
+        { t: 'SRE UB (Society of Renewable Energy)', s: 'Person in charge of day 1 of the SRE UB × UNDP ACCESS talk show.' },
+        { t: 'GDSC UB (Google Developer Student Club)', s: 'Developer community and collaborative projects.' }
       ]}
     ]
   },
   {
-    year: '2024', focus: 'Leadership & Pivot',
-    title: 'Lab Coordinator · PT INKA Project · National Awards · WPT Focus Begins',
-    stats: [{ v: '2', k: 'National Awards' }, { v: '2', k: 'Patents' }, { v: 'WPT', k: 'Career Pivot' }],
-    body: '<b>Full leadership</b> across multiple institutions simultaneously. Lab Coordinator, Research Assistant at CDP UB, commissioned project for <b>PT INKA</b>, two national wins. Made a <b>deliberate pivot toward Wireless Power Transfer (WPT)</b>.',
-    badges: ['Lab Coordinator', 'Research Asst. CDP UB', 'PT INKA Project', 'WaterGuard', '📄 Patent: Hydrozen', '🏆 TSIC 2024 Juara 2 (National)', '🏆 Sigma Business Plan Juara 3 (National)', 'PMW Funded', 'Start-up Funding'],
-    wins: ['🏆 TSIC 2024 Juara 2 (National)', '🏆 Sigma Business Plan Juara 3 (National)', '📄 Patent: Hydrozen'],
+    year: '2022', focus: 'IoT',
+    title: 'Joined IoT UB: first IoT project and first competition win',
+    stats: [{ v: '1st', k: 'Dekan Cup' }, { v: '1', k: 'IoT project' }],
+    body: 'I moved my focus to <b>IoT</b>. I joined the IoT UB student organization, led the website division of a hydroponic farm monitoring project, and won <b>1st place in the faculty-level PKM Dekan Cup</b>.',
+    badges: ['IoT UB, R&D staff', 'Project Cangar (website lead)', '1st Place, PKM Dekan Cup', 'Finalist, LP2PKM'],
+    wins: ['1st Place, PKM Dekan Cup'],
+    cats: [
+      { lbl: 'Organization', items: [{ t: 'IoT UB, Research & Development Staff', s: 'July 2022 – March 2024. IoT research and development, building interfaces, leading the web division.' }] },
+      { lbl: 'Projects', items: [{ t: 'Project Cangar: hydroponic farm monitoring', s: 'cangar-europa-server.web.app · Website division lead · Vue.js + Firebase · Real-time IoT monitoring for a hydroponic farm in Cangar, Malang.' }] },
+      { lbl: 'Awards', items: [
+        { t: '1st Place, PKM Dekan Cup scientific proposal competition', s: 'Faculty of Engineering, Universitas Brawijaya · January 2022' },
+        { t: 'Finalist, LP2PKM scientific proposal competition', s: 'Universitas Brawijaya · February 2022' }
+      ]},
+      { lbl: 'Skills', items: [{ t: 'A full IoT pipeline: sensor, connectivity, real-time web interface' }, { t: 'Real-time dashboards with Vue.js and Firebase' }] }
+    ]
+  },
+  {
+    year: '2023', focus: 'Research & recognition',
+    title: 'National funding, BRIN internship, first IP registration, national essay win',
+    stats: [{ v: '1st', k: 'National essay' }, { v: '1', k: 'IP registration' }, { v: 'BRIN', k: 'Internship' }],
+    body: 'A full year. Our proposal won <b>national PKM funding</b>, I became a lab assistant, interned at <b>BRIN</b>, won a <b>national essay competition</b>, and registered my first IP (PIKO). I also tried computer vision with <b>YOLOv8</b> and joined a startup ideation program.',
+    badges: ['IP registration: PIKO', '1st Place, LMI National Essay', 'PKM national funding', 'BRIN-ORPA internship', 'Lab Assistant, IoT Lab UB', 'Startup incubation'],
+    wins: ['1st Place, LMI National Essay', 'IP registration: PIKO'],
     cats: [
       { lbl: 'Work & Lab', items: [
-        { t: 'Lab Coordinator — IoT & Smart Computing Lab UB', s: 'March 2024 – May 2025. Promoted from Lab Assistant. Led 6 assistants; managed staffing, equipment & external relations. Ran 2024 recruitment and led the practicum module revision (incl. LoRa). 3 practicum cycles incl. external POLTEKAD.' },
-        { t: 'Research Assistant, Head of Smart Device Division — CDP Laboratory UB', s: 'July 2024 – May 2025. Developed smart device & WPT concepts; helped secure 2+ research grants for long-term WPT work. Led WaterGuard. Taught a hands-on IoT workshop for 150+ high school students.' }
+        { t: 'Lab Assistant, IoT & Smart Computing Lab UB', s: 'March 2023 – March 2024. Co-wrote practicum modules and taught basic microcontrollers and the Arduino IDE.' },
+        { t: 'Electronics Project Intern, BRIN Aerospace Research Organization (ORPA), Bogor', s: 'Dec 2023 – Feb 2024. Assembled a rocket vibration monitoring and control system, linking external ADC/DAC modules to an Arduino Mega 2560 over SPI. Added PID control to improve the response and the reliability of data readings.' }
       ]},
-      { lbl: 'Organisation', items: [{ t: 'IoT UB — Manager of Media & Publication', s: 'March 2024 – March 2025. Revitalized Broditech entity. Digital marketing + iot.ub.ac.id.' }] },
       { lbl: 'Projects', items: [
-        { t: 'PT INKA — Ethernet Modbus TCP/IP Temperature Display Module', s: 'June–July 2024. Arduino Nano Every + LED Matrix via Ethernet + Modbus for PLC. Railway manufacturing standards.' },
-        { t: 'WaterGuard — Smart Fish Pond Monitoring', s: 'Solar-powered buoy. Turbidity, Temp, TDS. Real-time dashboard. Pesantren, Jember.' },
-        { t: 'IoT Lab Website Development', s: 'iot.ub.ac.id/#/laboratory · Coordinator role.' }
+        { t: 'IoT UB organization website', s: 'iot.ub.ac.id · Coordinator · Vue.js + Tailwind CSS + Firebase' },
+        { t: 'PKM community service: waste processing at Tumpang Lestari TPS', s: 'Pyrolysis and RDF incineration, integrated with an electrical monitoring system. I handled finances, social media and external relations.' },
+        { t: 'Object detection with YOLOv8 and Google Colab', s: 'Personal exploration of computer vision.' }
       ]},
-      { lbl: 'Patents & Funding', items: [
-        { t: '📄 Patent: Hydrozen — Smart IoT Aquarium System', s: 'Automatic water temp controller. June 2024' },
-        { t: 'PMW Funding + Brawijaya Start-up Action Funding (WPT team, 8 members)', s: 'June & December 2024' }
+      { lbl: 'IP Registration', items: [{ t: 'PIKO: waste processing technology (registered IP, Indonesia)', s: 'Pyrolysis, condensation, RDF incineration and electrical monitoring. October 2023' }] },
+      { lbl: 'Awards', items: [
+        { t: '1st Place, LMI National Essay Competition', s: 'Lembaga Manajemen Infaq · Environment theme · November 2023' },
+        { t: 'Finalist and incubation, TUJUBELASAN startup program', s: 'Co-founder and CFO; reached the final and the incubation stage.' },
+        { t: 'PKM 2023 national funding', s: 'Indonesian Ministry of Education, Culture, Research and Technology · June 2023' }
+      ]}
+    ]
+  },
+  {
+    year: '2024', focus: 'Leadership & WPT',
+    title: 'Lab coordinator, PT INKA project, two national awards, start of the WPT focus',
+    stats: [{ v: '2', k: 'National awards' }, { v: '2', k: 'IP registrations' }, { v: 'WPT', k: 'New focus' }],
+    body: 'I took on more responsibility: <b>lab coordinator</b> at the IoT lab, <b>research assistant</b> at the CDP lab, a commissioned project for <b>PT INKA</b>, and two national awards. This is also the year I chose <b>Wireless Power Transfer</b> as my research direction.',
+    badges: ['Lab Coordinator', 'Research Assistant, CDP UB', 'PT INKA project', 'WaterGuard', 'IP registration: Hydrozen', '2nd Place, TSIC 2024', '3rd Place, SIGMA', 'PMW funding', 'Start-up Action funding'],
+    wins: ['2nd Place, TSIC 2024', '3rd Place, SIGMA', 'IP registration: Hydrozen'],
+    cats: [
+      { lbl: 'Work & Lab', items: [
+        { t: 'Lab Coordinator, IoT & Smart Computing Lab UB', s: 'March 2024 – May 2025. Promoted from lab assistant. Led 6 assistants and handled staffing, equipment and external relations. Ran the 2024 recruitment, led the practicum module revision (including LoRa), and ran 3 practicum cycles, one of them for an external partner (POLTEKAD).' },
+        { t: 'Research Assistant and Head of Smart Device Division, CDP Lab UB', s: 'July 2024 – May 2025. Developed smart device and WPT concepts and helped secure 2+ grants for long-term WPT work. Led WaterGuard and taught a hands-on IoT workshop for 150+ high school students.' }
+      ]},
+      { lbl: 'Organization', items: [{ t: 'Manager of Media & Publication, IoT UB', s: 'March 2024 – March 2025. Relaunched Broditech, the organization\'s business unit, and ran its digital marketing and the iot.ub.ac.id website.' }] },
+      { lbl: 'Projects', items: [
+        { t: 'PT INKA: Ethernet Modbus TCP/IP temperature display', s: 'June – July 2024. An Arduino Nano Every reads PLC data over Ethernet with Modbus and drives an LED matrix, built to railway manufacturing standards.' },
+        { t: 'WaterGuard: smart fish pond monitoring', s: 'Solar-powered buoy measuring turbidity, temperature and TDS, with a real-time dashboard. Deployed at an Islamic boarding school in Jember.' },
+        { t: 'IoT Lab website', s: 'iot.ub.ac.id/#/laboratory · Coordinator.' }
+      ]},
+      { lbl: 'IP & Funding', items: [
+        { t: 'Hydrozen: smart IoT aquarium system (registered IP, Indonesia)', s: 'Automatic water temperature control. June 2024' },
+        { t: 'PMW funding and Brawijaya Start-up Action funding (8-person WPT team)', s: 'June and December 2024' }
       ]},
       { lbl: 'Awards', items: [
-        { t: '🏆 2nd Place — TSIC 2024 National Innovation Competition', s: 'UNESA · OHS subtheme · July 2024' },
-        { t: '🏆 3rd Place — SIGMA Business Plan Competition', s: 'Telkom University · AI-based smart farming · November 2024' }
+        { t: '2nd Place, TSIC 2024 national innovation competition', s: 'Universitas Negeri Surabaya (UNESA) · Occupational health and safety category · July 2024' },
+        { t: '3rd Place, SIGMA Business Plan Competition', s: 'Telkom University · AI-based smart farming · November 2024' }
       ]},
-      { lbl: 'Career Pivot', items: [{ t: 'Began deep focus on Wireless Power Transfer (WPT)', s: 'Identified WPT as high-opportunity, underexplored field. Started study in magnetics, resonance, analog power electronics.' }] }
+      { lbl: 'Research Direction', items: [{ t: 'Chose Wireless Power Transfer as my focus', s: 'WPT has real demand and relatively few people working on it. I started studying magnetics, resonance and power electronics in depth.' }] }
     ]
   },
   {
-    year: '2025', focus: 'WPT Research & Graduation',
-    title: 'Thesis · Graduated · Published · Founded Charless WPT Startup',
-    stats: [{ v: '🎓', k: 'Graduated' }, { v: '📰', k: 'Published' }, { v: '2×', k: 'Startup Funding' }],
-    body: 'Final year — <b>100% focused on WPT</b>. Founded "Charless" startup, built MVP wireless charging table, completed and defended thesis. <b>Graduated</b>. Published in TEUB journal.',
-    badges: ['🎓 B.Eng Graduated', '📰 TEUB Journal Published', 'Charless (2× Hibah)', 'WPT Thesis', 'IELTS 6.5', 'TOEFL ITP 570'],
-    wins: ['🎓 B.Eng Graduated', '📰 TEUB Journal Published'],
-    cats: [
-      { lbl: 'Education & Graduation', items: [
-        { t: '🎓 Graduated — BSc Electrical Engineering, Universitas Brawijaya · July 2025', s: 'Minor: Electronics · GPA 3.42 / 4.00' },
-        { t: 'Thesis: Design & Development of 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices', s: 'Parallel-parallel resonant topology, PWM-driven half-bridge, hand-wound coils, custom PCB, resonance tuning at 140.2 kHz, performance measured across loads, FLIR thermal + oscilloscope validation.' }
-      ]},
-      { lbl: 'Publication', items: [{ t: '📰 Published — TEUB Student Journal', s: '"Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices" · elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264 · July 2025' }] },
-      { lbl: 'Startup', items: [{ t: 'Founded Charless — WPT commercial wireless charging startup', s: '8-person team · 2× hibah funding · MVP: wireless charging table (phone charges placed on surface, no pad).' }] },
-      { lbl: 'Certifications', items: [{ t: 'IELTS 6.5 · TOEFL ITP 570 · Microsoft Office IT Test', s: 'September & July 2025' }] }
-    ]
-  },
-  {
-    year: '2026', focus: 'Industry → Graduate School',
-    title: 'IoT NOC Engineer · MSc at NSYSU, Taiwan · MOE Taiwan Scholarship',
-    stats: [{ v: 'NSYSU', k: 'MSc, Taiwan' }, { v: '65 W', k: 'WPT target' }, { v: 'MOE', k: 'Scholarship' }],
-    body: 'Worked as an <b>IoT NOC Engineer</b> handling live network and device incidents, then started an <b>MSc in Electrical Power Engineering at National Sun Yat-sen University</b> in Kaohsiung, Taiwan, on an <b>MOE Taiwan Scholarship</b>. Research focus: making WPT more efficient, targeting <b>laptop-class (65 W) charging</b>.',
-    badges: ['🎓 MSc @ NSYSU', '🏅 MOE Taiwan Scholarship', 'NOC Engineer (IoT)', 'Python Automation', 'WPT Efficiency Research', 'Open to Internships'],
-    wins: ['🎓 MSc @ NSYSU', '🏅 MOE Taiwan Scholarship'],
+    year: '2025', focus: 'WPT thesis & graduation',
+    title: 'WPT thesis, graduation, journal paper, Charless startup team',
+    stats: [{ v: 'BSc', k: 'Graduated' }, { v: '1', k: 'Journal paper' }, { v: '2', k: 'Startup grants' }],
+    body: 'My final year went into <b>WPT</b>. I led <b>Charless</b>, an 8-person WPT startup team, and built an MVP wireless charging table. I finished and defended my thesis, <b>graduated in July</b>, and published the work in the TEUB journal.',
+    badges: ['BSc graduate', 'TEUB journal paper', 'Charless (2 grants)', 'WPT thesis', 'IELTS 6.5', 'TOEFL ITP 570'],
+    wins: ['BSc graduate', 'TEUB journal paper'],
     cats: [
       { lbl: 'Education', items: [
-        { t: 'MSc, International Master\'s Program in Electrical Power Engineering (IMEPE) — National Sun Yat-sen University', s: 'Sep 2026 – Aug 2028 · Kaohsiung, Taiwan · MOE Taiwan Scholarship (Taiwan Ministry of Education)' },
+        { t: 'BSc Electrical Engineering, Universitas Brawijaya · July 2025', s: 'Minor in Electronics · GPA 3.42 / 4.00' },
+        { t: 'Thesis: Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices', s: 'Parallel-parallel resonant topology, PWM-driven half-bridge, hand-wound coils and a custom PCB. Tuned to 140.2 kHz, measured across loads, and validated with an oscilloscope and a FLIR thermal camera.' }
+      ]},
+      { lbl: 'Publication', items: [{ t: 'TEUB Student Journal, July 2025', s: '"Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices" · elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264' }] },
+      { lbl: 'Startup', items: [{ t: 'Charless: WPT wireless charging startup', s: 'Led an 8-person team · 2 grants · MVP: a wireless charging table that charges a phone placed on its surface, with no separate pad.' }] },
+      { lbl: 'Certifications', items: [{ t: 'IELTS 6.5 · TOEFL ITP 570 · Microsoft Office IT test', s: 'September and July 2025' }] }
+    ]
+  },
+  {
+    year: '2026', focus: 'Industry to graduate school',
+    title: 'IoT NOC Engineer, then MSc at NSYSU on an MOE Taiwan Scholarship',
+    stats: [{ v: 'NSYSU', k: 'MSc, Taiwan' }, { v: '65 W', k: 'WPT target' }, { v: 'MOE', k: 'Scholarship' }],
+    body: 'I worked as an <b>IoT NOC Engineer</b>, handling live network and device incidents, then started an <b>MSc in Electrical Power Engineering at National Sun Yat-sen University</b> in Kaohsiung on an <b>MOE Taiwan Scholarship</b>. My research is on making WPT more efficient, aimed at <b>laptop-class (65 W) charging</b>.',
+    badges: ['MSc, NSYSU', 'MOE Taiwan Scholarship', 'NOC Engineer (IoT)', 'Python automation', 'WPT efficiency research', 'Open to internships'],
+    wins: ['MSc, NSYSU', 'MOE Taiwan Scholarship'],
+    cats: [
+      { lbl: 'Education', items: [
+        { t: 'MSc, International Master\'s Program in Electrical Power Engineering (IMEPE), National Sun Yat-sen University', s: 'Sep 2026 – Aug 2028 · Kaohsiung, Taiwan · MOE Taiwan Scholarship (Taiwan Ministry of Education)' },
         { t: 'Courses: Power Electronic Converters, Power Conditioning Systems, Renewable Energy Applications' }
       ]},
       { lbl: 'Work', items: [
-        { t: 'NOC Engineer (IoT Specialist) — PT Geo Tekno Globalindo, Jakarta', s: 'May – Aug 2026. Handled network & IoT device incidents, tracing root causes and getting systems back online fast. Worked remotely with on-board engineers to fix field connectivity problems. Built Python tools that automated parts of the NOC data analysis.' }
+        { t: 'NOC Engineer (IoT Specialist), PT Geo Tekno Globalindo, Jakarta', s: 'May – Aug 2026. Handled network and IoT device incidents, tracing root causes and getting systems back online fast. Worked remotely with on-board engineers to fix connectivity problems in the field. Built Python tools that automated parts of the NOC data analysis.' }
       ]},
       { lbl: 'Research', items: [
-        { t: 'Efficiency-focused WPT research (Master\'s)', s: 'Sep 2026 – present. Studying how to raise WPT efficiency, with laptop-class (65 W) charging as the target application.' }
+        { t: 'Master\'s research: WPT efficiency', s: 'Sep 2026 – present. Studying how to raise WPT efficiency, with laptop-class (65 W) charging as the target application.' }
       ]},
       { lbl: 'Availability', items: [
-        { t: 'Open to internships during winter & summer school breaks', s: 'Full-time roles after graduation in 2028.' }
+        { t: 'Open to internships during the winter and summer school breaks', s: 'Full-time roles after graduation in 2028.' }
       ]},
-      { lbl: 'Independent Research', items: [
-        { t: 'AI Edge Computing — Jetson Orin Nano', s: 'Real-time object detection: YOLOv11 + external camera, Python + Google libraries. Fully on edge hardware.' },
-        { t: 'AI-Integrated Trading Bot', s: 'Built and improving accuracy. Next: AI model integration for smarter pattern detection.' }
+      { lbl: 'Independent Projects', items: [
+        { t: 'Edge AI on a Jetson Orin Nano', s: 'Real-time object detection with YOLOv11 and an external camera, written in Python and running fully on the edge device.' },
+        { t: 'Trading bot with AI integration', s: 'Working, and being tuned for accuracy. Next step: adding an AI model for pattern detection.' }
       ]}
     ]
   }
@@ -585,8 +590,9 @@ function tlAdvance() {
   tlTimer = setTimeout(tlAdvance, TL_DUR);
 }
 
-tlRenderCard(0, false);
-document.querySelectorAll('.tl-tab').forEach(function(t, i) { t.classList.toggle('on', i === 0); });
+tlCur = TL.length - 1;
+tlRenderCard(tlCur, false);
+document.querySelectorAll('.tl-tab').forEach(function(t, i) { t.classList.toggle('on', i === tlCur); });
 tlResetBars();
 
 var tlSection = document.getElementById('journey');
@@ -634,21 +640,21 @@ var PROJ = {
     link: { label: 'Live Site ↗', url: 'https://icgc-registration.web.app/#/' }
   },
   waterguard: {
-    title: 'WaterGuard — Smart Fish Pond Monitoring',
+    title: 'WaterGuard: Smart Fish Pond Monitoring',
     sub: 'IoT Hardware + Software · CDP Lab UB × FPIK · Jember · Jul 2024 – Mar 2025',
     desc: 'A <b>solar-powered floating IoT buoy</b> monitoring fish pond water quality in real time. Deployed at a pesantren in Jember. Monitors <b>turbidity, water temperature, and TDS</b>, transmitting data wirelessly to a custom mobile dashboard. Led a <b>6-person team</b> across hardware, software, programming, and mechanics divisions.',
     tags: ['Arduino', 'MQTT', 'Turbidity Sensor', 'TDS Sensor', 'Temperature', 'Solar Power', 'Mobile UI', 'Team Lead (6 people)'],
     imgs: ['img/wg_app.jpeg', 'img/wg_pond.jpeg', 'img/wg_dev.jpeg', 'img/wg_pres.jpeg']
   },
   inka: {
-    title: 'PT INKA — Ethernet Modbus TCP/IP Temperature Display',
+    title: 'PT INKA: Ethernet Modbus TCP/IP Temperature Display',
     sub: 'Industrial IoT · Commissioned · PT Industri Kereta Api · 2024',
     desc: 'A commissioned hardware module for <b>PT INKA</b> (Indonesia\'s state railway manufacturer). Reads temperature and humidity directly from an industrial <b>PLC via Ethernet using Modbus TCP/IP</b>, then displays it on an <b>LED matrix running text display</b> inside train passenger compartments. Built on Arduino Nano Every, validated with Modbus Poll and real PLC communication.',
     tags: ['Arduino Nano Every', 'Modbus TCP/IP', 'Ethernet', 'LED Matrix', 'PLC Integration', 'Industrial IoT', 'Configurable IP/ID'],
     imgs: ['img/inka_led.jpeg', 'img/inka_pcb.jpeg', 'img/inka_sw.jpeg', 'img/inka_lab.jpeg']
   },
   wpt: {
-    title: 'WPT System for IoT Devices — Undergraduate Thesis',
+    title: 'WPT System for IoT Devices (Undergraduate Thesis)',
     sub: 'Published · TEUB Journal 2025 · 140 kHz Magnetic Resonant Coupling',
     desc: 'Designed and built a <b>140 kHz parallel-parallel resonant WPT system</b> for low-power IoT devices, from scratch. A <b>PWM-driven half-bridge</b> drives the resonant tank through hand-wound copper coils on custom <b>PCBs</b>. Tuned to <b>140.2 kHz</b>, then measured performance across loads on real hardware, with oscilloscope and <b>FLIR E30</b> thermal validation. Published in the TEUB journal (2025). Technical foundation of the Charless WPT startup, which won Brawijaya Start-up Action funding.',
     tags: ['WPT', 'Magnetic Resonant Coupling', '140 kHz', 'P-P Compensation', 'Half-bridge', 'PWM', 'Custom Coil', 'PCB Design', 'LTspice', 'FLIR Thermal', 'Oscilloscope', 'Published'],
@@ -722,3 +728,12 @@ function pmOpenLb() {
 
 // initial language
 applyLang(LANG, false);
+
+// project cards: keyboard accessible
+document.querySelectorAll('.pcard').forEach(function (c) {
+  c.tabIndex = 0;
+  c.setAttribute('role', 'button');
+  c.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.click(); }
+  });
+});
