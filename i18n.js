@@ -19,7 +19,7 @@ var ZH = {
   // hero (desktop)
   'hero.eyebrow': '電機電力工程碩士生',
   'hero.role': '<span class="zh" lang="zh-Hant">趙伊登</span>，現居高雄',
-  'hero.avail': '<span class="avail-dot"></span>寒暑假可以實習，2028 年起可全職',
+  'hero.avail': '寒暑假可以實習，2028 年起可全職。',
   'hero.bio': '目前就讀<b>國立中山大學</b>碩士班，研究如何<b>讓無線電能傳輸（WPT）更有效率</b>。大學時親手設計並打造 <b>140 kHz 諧振式 WPT 原型</b>，成果已發表於期刊；畢業後擔任 <b>IoT 網路維運（NOC）工程師</b>，在第一線處理網路與設備異常。教育部臺灣獎學金受獎生。',
   'hero.cv': '下載履歷',
   'hero.cta1': '看看我的作品',
@@ -32,7 +32,7 @@ var ZH = {
   // hero (mobile)
   'hm.ey': '中山大學碩士生',
   'hm.role': '<span class="zh" lang="zh-Hant">趙伊登</span>，現居高雄',
-  'hm.avail': '<span class="avail-dot"></span>寒暑假可以實習',
+  'hm.avail': '寒暑假可以實習。',
   'hm.bio': '在中山大學研究<strong>更高效率的無線電能傳輸</strong>。曾打造 140 kHz 諧振式 WPT 原型並發表論文，也做過 <strong>IoT NOC 工程師</strong>。',
   'hm.contact': '聯絡我',
 
