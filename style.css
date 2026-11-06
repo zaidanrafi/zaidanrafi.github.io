@@ -344,3 +344,14 @@ footer{max-width:1160px;margin:0 auto;padding:2rem 5rem;display:flex;align-items
 @media(prefers-reduced-motion:reduce){.avail-dot{animation:none}}
 .hero-mob .stats-row{gap:1.4rem;margin-top:1.5rem;flex-wrap:nowrap}
 .hero-mob .stat-lbl{white-space:nowrap}
+
+/* language switch + Traditional Chinese typography */
+.nav-right{display:flex;align-items:center;gap:.9rem}
+.lang-btn{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--muted);background:transparent;border:1px solid var(--bdr2);border-radius:999px;padding:.32rem .8rem;cursor:pointer;transition:color .2s,border-color .2s}
+.lang-btn:hover{color:var(--accent);border-color:var(--accent)}
+html[lang^="zh"]{--serif:'Playfair Display','Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;--sans:'Outfit','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif}
+html[lang^="zh"] body{line-height:1.85}
+html[lang^="zh"] .contact-h em,html[lang^="zh"] .tl-body em{font-style:normal}
+html[lang^="zh"] .hero-bio,html[lang^="zh"] .hm-bio,html[lang^="zh"] .contact-sub,html[lang^="zh"] .pcard-desc{font-weight:400;letter-spacing:.02em}
+html[lang^="zh"] .s-title,html[lang^="zh"] .contact-h{letter-spacing:0}
+html[lang^="zh"] .nav-links a,html[lang^="zh"] .stat-lbl,html[lang^="zh"] .fg label{letter-spacing:.12em}
