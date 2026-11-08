@@ -335,11 +335,11 @@ var TL = [
   },
   {
     year: '2023', focus: 'Research & recognition',
-    title: 'National funding, BRIN internship, first IP registration, national essay win',
-    stats: [{ v: '1st', k: 'National essay' }, { v: '1', k: 'IP registration' }, { v: 'BRIN', k: 'Internship' }],
-    body: 'A full year. Our proposal won <b>national PKM funding</b>, I became a lab assistant, interned at <b>BRIN</b>, won a <b>national essay competition</b>, and registered my first IP (PIKO). I also tried computer vision with <b>YOLOv8</b> and joined a startup ideation program.',
-    badges: ['IP registration: PIKO', '1st Place, LMI National Essay', 'PKM national funding', 'BRIN-ORPA internship', 'Lab Assistant, IoT Lab UB', 'Startup incubation'],
-    wins: ['1st Place, LMI National Essay', 'IP registration: PIKO'],
+    title: 'National funding, BRIN internship, first patent, national essay win',
+    stats: [{ v: '1st', k: 'National essay' }, { v: '1', k: 'Patent' }, { v: 'BRIN', k: 'Internship' }],
+    body: 'A full year. Our proposal won <b>national PKM funding</b>, I became a lab assistant, interned at <b>BRIN</b>, won a <b>national essay competition</b>, and registered my first patent (PIKO). I also tried computer vision with <b>YOLOv8</b> and joined a startup ideation program.',
+    badges: ['Patent: PIKO', '1st Place, LMI National Essay', 'PKM national funding', 'BRIN-ORPA internship', 'Lab Assistant, IoT Lab UB', 'Startup incubation'],
+    wins: ['1st Place, LMI National Essay', 'Patent: PIKO'],
     cats: [
       { lbl: 'Work & Lab', items: [
         { t: 'Lab Assistant, IoT & Smart Computing Lab UB', s: 'March 2023 – March 2024. Co-wrote practicum modules and taught basic microcontrollers and the Arduino IDE.' },
@@ -350,7 +350,7 @@ var TL = [
         { t: 'PKM community service: waste processing at Tumpang Lestari TPS', s: 'Pyrolysis and RDF incineration, integrated with an electrical monitoring system. I handled finances, social media and external relations.' },
         { t: 'Object detection with YOLOv8 and Google Colab', s: 'Personal exploration of computer vision.' }
       ]},
-      { lbl: 'IP Registration', items: [{ t: 'PIKO: waste processing technology (registered IP, Indonesia)', s: 'Pyrolysis, condensation, RDF incineration and electrical monitoring. October 2023' }] },
+      { lbl: 'Patent', items: [{ t: 'PIKO: waste processing technology (patent, Indonesia)', s: 'Pyrolysis, condensation, RDF incineration and electrical monitoring. October 2023' }] },
       { lbl: 'Awards', items: [
         { t: '1st Place, LMI National Essay Competition', s: 'Lembaga Manajemen Infaq, environment theme, November 2023' },
         { t: 'Finalist and incubation, TUJUBELASAN startup program', s: 'Co-founder and CFO; reached the final and the incubation stage.' },
@@ -361,10 +361,10 @@ var TL = [
   {
     year: '2024', focus: 'Leadership & WPT',
     title: 'Lab coordinator, PT INKA project, two national awards, start of the WPT focus',
-    stats: [{ v: '2', k: 'National awards' }, { v: '2', k: 'IP registrations' }, { v: 'WPT', k: 'New focus' }],
+    stats: [{ v: '2', k: 'National awards' }, { v: '2', k: 'Patents' }, { v: 'WPT', k: 'New focus' }],
     body: 'I took on more responsibility: <b>lab coordinator</b> at the IoT lab, <b>research assistant</b> at the CDP lab, a commissioned project for <b>PT INKA</b>, and two national awards. This is also the year I chose <b>Wireless Power Transfer</b> as my research direction.',
-    badges: ['Lab Coordinator', 'Research Assistant, CDP UB', 'PT INKA project', 'WaterGuard', 'IP registration: Hydrozen', '2nd Place, TSIC 2024', '3rd Place, SIGMA', 'PMW funding', 'Start-up Action funding'],
-    wins: ['2nd Place, TSIC 2024', '3rd Place, SIGMA', 'IP registration: Hydrozen'],
+    badges: ['Lab Coordinator', 'Research Assistant, CDP UB', 'PT INKA project', 'WaterGuard', 'Patent: Hydrozen', '2nd Place, TSIC 2024', '3rd Place, SIGMA', 'PMW funding', 'Start-up Action funding'],
+    wins: ['2nd Place, TSIC 2024', '3rd Place, SIGMA', 'Patent: Hydrozen'],
     cats: [
       { lbl: 'Work & Lab', items: [
         { t: 'Lab Coordinator, IoT & Smart Computing Lab UB', s: 'March 2024 – May 2025. Promoted from lab assistant. Led 6 assistants and handled staffing, equipment and external relations. Ran the 2024 recruitment, led the practicum module revision (including LoRa), and ran 3 practicum cycles, one of them for an external partner (POLTEKAD).' },
@@ -376,8 +376,8 @@ var TL = [
         { t: 'WaterGuard: smart fish pond monitoring', s: 'Solar-powered buoy measuring turbidity, temperature and TDS, with a real-time dashboard. Deployed at an Islamic boarding school in Jember.' },
         { t: 'IoT Lab website', s: 'Coordinated the build of iot.ub.ac.id/#/laboratory.' }
       ]},
-      { lbl: 'IP & Funding', items: [
-        { t: 'Hydrozen: smart IoT aquarium system (registered IP, Indonesia)', s: 'Automatic water temperature control. June 2024' },
+      { lbl: 'Patents & Funding', items: [
+        { t: 'Hydrozen: smart IoT aquarium system (patent, Indonesia)', s: 'Automatic water temperature control. June 2024' },
         { t: 'PMW funding and Brawijaya Start-up Action funding (8-person WPT team)', s: 'June and December 2024' }
       ]},
       { lbl: 'Awards', items: [
