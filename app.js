@@ -202,7 +202,7 @@ window.addEventListener('scroll', function() {
 }, { passive: true });
 
 function updateActiveNav() {
-  var ids = ['skills','journey','projects','contact'];
+  var ids = ['skills','journey','projects','publications','contact'];
   var active = '';
   ids.forEach(function(id) {
     var el = document.getElementById(id);

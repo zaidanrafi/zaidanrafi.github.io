@@ -15,6 +15,20 @@ var ZH = {
   'nav.journey': '歷程',
   'nav.work': '作品',
   'nav.contact': '聯絡',
+  // TODO review: Publications & Funding section and nav link (new)
+  'nav.pubs': '論文',
+  'pub.label': '研究成果',
+  'pub.title': '論文與補助',
+  'pub.h1': '論文與智慧財產',
+  'pub.h2': '獲獎與補助',
+  'pub.paper': '<span class="pub-yr">2025</span><div><b>期刊論文：</b>Design and Development of a 140 kHz Magnetic Resonant Coupling WPT System for IoT Devices。<a href="https://elektro.studentjournal.ub.ac.id/index.php/teub/article/view/2264" target="_blank" rel="noopener">閱讀論文 ↗</a></div>',
+  'pub.hydrozen': '<span class="pub-yr">2024</span><div><b>Hydrozen（印尼智財登記）：</b>IoT 水族箱監測與自動溫控系統。</div>',
+  'pub.piko': '<span class="pub-yr">2023</span><div><b>PIKO（印尼智財登記）：</b>結合熱裂解、RDF 焚化與電力監測的廢棄物處理系統。</div>',
+  'fund.startup': '<span class="pub-yr">2024/12</span><div><b>布拉維賈亞大學 Start-up Action 創業補助</b>：帶領 8 人 WPT 團隊獲得創業補助。</div>',
+  'fund.sigma': '<span class="pub-yr">2024/11</span><div><b>SIGMA 創業企劃競賽 第三名</b>，Telkom 大學。</div>',
+  'fund.tsic': '<span class="pub-yr">2024/07</span><div><b>交通安全創新競賽（TSIC）第二名</b>，泗水國立大學（UNESA）。</div>',
+  'fund.pkm': '<span class="pub-yr">2023/06</span><div><b>PKM 大學生研究計畫補助</b>，印尼教育部。</div>',
+
 
   // hero (desktop)
   'hero.eyebrow': '電機電力工程碩士生',

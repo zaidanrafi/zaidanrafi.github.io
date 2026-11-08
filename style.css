@@ -362,3 +362,11 @@ html[lang^="zh"] .nav-links a,html[lang^="zh"] .stat-lbl,html[lang^="zh"] .fg la
 .hero-now b{font-weight:500;color:var(--text)}
 .hm-now{font-size:.8rem;font-weight:300;line-height:1.75;color:var(--muted);max-width:34rem;margin:-.8rem 0 1.4rem}
 .hm-now b{font-weight:500;color:var(--text)}
+
+/* publications & funding list */
+.pub-list{list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-top:.35rem}
+.pub-list li{display:grid;grid-template-columns:4.4rem 1fr;gap:.75rem;font-size:.84rem;font-weight:300;line-height:1.65;color:var(--muted)}
+.pub-list b{font-weight:500;color:var(--text)}
+.pub-list a{color:var(--accent);text-decoration:none;white-space:nowrap}
+.pub-list a:hover{text-decoration:underline}
+.pub-yr{font-size:.7rem;letter-spacing:.06em;color:var(--accent);padding-top:.2rem}
