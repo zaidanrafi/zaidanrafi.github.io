@@ -655,6 +655,13 @@ var PROJ = {
     tags: ['Arduino Nano Every', 'Modbus TCP/IP', 'Ethernet', 'LED Matrix', 'PLC Integration', 'Industrial IoT', 'Configurable IP/ID'],
     imgs: ['/img/inka_led.jpeg', '/img/inka_pcb.jpeg', '/img/inka_sw.jpeg', '/img/inka_lab.jpeg']
   },
+  brin: {
+    title: 'Rocket Vibration Monitoring and Control System',
+    sub: 'Electronics Project Intern at BRIN Aerospace Research Organization (ORPA), Bogor, Dec 2023 – Feb 2024',
+    desc: "During my internship at BRIN's Aerospace Research Organization (ORPA) I assembled a vibration monitoring and control system for a rocket. External <b>ADC and DAC modules</b> are linked to an <b>Arduino Mega 2560 over SPI</b>, and I added <b>PID control</b> to improve the system's response and the reliability of its data readings.",
+    tags: ['Arduino Mega 2560', 'SPI', 'ADC', 'DAC', 'PID Control', 'Internship'],
+    imgs: ['/img/brin_rocket.jpeg', '/img/brin_scope.jpeg', '/img/brin_plot.jpeg', '/img/brin_code.jpeg']
+  },
   wpt: {
     title: 'WPT System for IoT Devices (Undergraduate Thesis)',
     sub: '140 kHz magnetic resonant coupling, published in the TEUB journal (2025)',

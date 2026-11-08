@@ -88,6 +88,10 @@ var ZH = {
   'p.inka.sub': '工業物聯網專案，使用 Modbus TCP/IP 與 LED 點矩陣',
   'p.inka.desc': '為印尼國營鐵路車輛製造商開發的客製模組，透過乙太網路以 Modbus 從 PLC 讀取溫濕度，顯示在列車客車廂的 LED 點矩陣上。',
   'tag.ethernet': '乙太網路',
+  // TODO review: BRIN project card (new)
+  'p.brin.name': '火箭振動監測與控制系統',
+  'p.brin.sub': '印尼國家研究與創新署（BRIN）航太研究組織實習，2023 年 12 月 – 2024 年 2 月',
+  'p.brin.desc': '透過 SPI 將外部 ADC／DAC 模組連接至 Arduino Mega 2560，並導入 PID 控制，改善系統響應與資料讀取的穩定性。',
 
   // contact
   'contact.label': '保持聯絡',
@@ -291,6 +295,13 @@ var PROJ_ZH = {
     sub: 'PT Industri Kereta Api 委託的工業物聯網專案，2024 年',
     desc: '為印尼國營鐵路車輛製造商 <b>PT INKA</b> 開發的委託硬體模組。透過<b>乙太網路以 Modbus TCP/IP 直接讀取工業 PLC</b> 的溫濕度資料，並顯示在列車客車廂內的 <b>LED 點矩陣跑馬燈</b>上。以 Arduino Nano Every 開發，並用 Modbus Poll 與實際 PLC 通訊完成驗證。',
     tags: ['Arduino Nano Every', 'Modbus TCP/IP', '乙太網路', 'LED 點矩陣', 'PLC 整合', '工業物聯網', 'IP／ID 可設定']
+  },
+  // TODO review: BRIN project details (new)
+  brin: {
+    title: '火箭振動監測與控制系統',
+    sub: '電子專案實習生，印尼國家研究與創新署（BRIN）航太研究組織，茂物，2023 年 12 月 – 2024 年 2 月',
+    desc: '在 BRIN 航太研究組織實習期間，組裝火箭用振動監測與控制系統。透過 <b>SPI</b> 將外部 <b>ADC／DAC 模組</b>連接至 <b>Arduino Mega 2560</b>，並導入 <b>PID 控制</b>，改善系統響應與運作中資料讀取的穩定性。',
+    tags: ['Arduino Mega 2560', 'SPI', 'ADC', 'DAC', 'PID 控制', '實習']
   },
   wpt: {
     title: 'IoT 裝置用 WPT 系統（畢業專題）',
