@@ -356,3 +356,9 @@ html[lang^="zh"] .s-title,html[lang^="zh"] .contact-h{letter-spacing:0}
 html[lang^="zh"] .nav-links a,html[lang^="zh"] .stat-lbl,html[lang^="zh"] .fg label{letter-spacing:.12em}
 .hero-mob .hm-bio{max-width:34rem}
 .hero-mob .stats-row{max-width:26rem}
+
+/* current research line (hero) */
+.hero-now{font-size:.86rem;font-weight:300;line-height:1.75;color:var(--muted);max-width:500px;margin:-1.4rem 0 2.3rem}
+.hero-now b{font-weight:500;color:var(--text)}
+.hm-now{font-size:.8rem;font-weight:300;line-height:1.75;color:var(--muted);max-width:34rem;margin:-.8rem 0 1.4rem}
+.hm-now b{font-weight:500;color:var(--text)}
