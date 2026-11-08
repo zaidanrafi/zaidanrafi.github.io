@@ -82,7 +82,7 @@ html = html.replace('family=Outfit:wght@300;400;500&amp;display=swap',
   'family=Outfit:wght@300;400;500&amp;family=Noto+Sans+TC:wght@300;400;500&amp;family=Noto+Serif+TC:wght@500&amp;display=swap');
 
 // 4) body bits that are not text nodes
-html = html.split('href="/Zaidan_Muhammad_Rafi_CV.pdf"').join('href="/Zaidan_Rafi_CV_ZH.pdf"');
+html = html.split('href="/Zaidan_Muhammad_Rafi_CV_2026.pdf"').join('href="/Zaidan_Rafi_CV_ZH_2026.pdf"');
 html = html.replace(/<button class="lang-btn" id="langBtn" type="button" aria-label="[^"]*" lang="zh-Hant">中文<\/button>/,
   '<button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English" lang="en">EN</button>');
 html = html.split('alt="Portrait of Zaidan Muhammad Rafi"').join('alt="趙伊登（Zaidan Muhammad Rafi）個人照"');

@@ -54,7 +54,7 @@ function applyLang(lang, persist) {
     el.setAttribute('aria-label', zh && k in ZH ? ZH[k] : EN_TEXT['aria:' + k]);
   });
   document.querySelectorAll('.cv-link').forEach(function (a) {
-    a.href = zh ? '/Zaidan_Rafi_CV_ZH.pdf' : '/Zaidan_Muhammad_Rafi_CV.pdf';
+    a.href = zh ? '/Zaidan_Rafi_CV_ZH_2026.pdf' : '/Zaidan_Muhammad_Rafi_CV_2026.pdf';
   });
   document.documentElement.lang = zh ? 'zh-Hant-TW' : 'en';
   var lb = document.getElementById('langBtn');
